@@ -1,0 +1,23 @@
+{
+    "Receivers": [
+        {
+            "AutoConnect": false,
+            "LocalHostMode": 0,
+            "LocalHost": "",
+            "LocalPort": 7100
+        }
+    ],
+    "Transmitters": [
+        {
+            "AutoConnect": false,
+            "RemoteHost": "127.0.0.1",
+            "RemotePort": 7100,
+            "UseBundle": false,
+            "LocalHostMode": 0,
+            "LocalHost": "",
+            "LocalPortMode": 0,
+            "LocalPort": 7100
+        }
+    ],
+    "Components": []
+}
