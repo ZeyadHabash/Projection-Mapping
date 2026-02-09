@@ -1,6 +1,5 @@
 {
   "dependencies": {
-    "com.iam1337.extosc": "https://github.com/iam1337/extOSC.git#upm",
     "com.unity.ai.navigation": "2.0.9",
     "com.unity.collab-proxy": "2.10.2",
     "com.unity.ide.rider": "3.0.38",
