@@ -41,6 +41,8 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     - _count: 36
+    - _countX: 44
+    - _countY: 150
     - _size: 0.022
     - _speed: 0.55
     m_Colors:
