@@ -16,6 +16,7 @@ public class TestTracking : MonoBehaviour
 
     private float handYOffset = 4.5f * 2;
     private static float UNITS_RATIO = 10;
+    private float zOffset = -12.5f;
     
     void Awake()
     {
@@ -36,13 +37,15 @@ public class TestTracking : MonoBehaviour
     {
         var temp = message.Values[0].FloatValue;
         Debug.Log($"--- blah {temp}");
-        if (temp > 0) {
-            r_rend.material.color = Color.red;
-        } else
-        {
-            r_rend.material.color = Color.cyan;
+        if (r_rend != null) {
+            if (temp > 0) {
+                r_rend.material.color = Color.red;
+            } else
+            {
+                r_rend.material.color = Color.cyan;
+            }
         }
-        r_cubeTransform.position = new Vector3(rx, ry, -0.5f);
+        r_cubeTransform.position = new Vector3(rx, ry, zOffset);
     }
 
     void MoveHandRx(OSCMessage message)
@@ -59,13 +62,15 @@ public class TestTracking : MonoBehaviour
     {
         var temp = message.Values[0].FloatValue;
         Debug.Log($"--- blah {temp}");
-        if (temp > 0) {
-            l_rend.material.color = Color.red;
-        } else
-        {
-            l_rend.material.color = Color.cyan;
+       if (l_rend != null) {
+            if (temp > 0) {
+                l_rend.material.color = Color.red;
+            } else
+            {
+                l_rend.material.color = Color.cyan;
+            }
         }
-        l_cubeTransform.position = new Vector3(lx, ly, -0.5f);
+        l_cubeTransform.position = new Vector3(lx, ly, zOffset);
     }
 
     void MoveHandLx(OSCMessage message)
