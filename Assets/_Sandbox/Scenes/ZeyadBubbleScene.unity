@@ -417,7 +417,7 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -688,6 +688,8 @@ MonoBehaviour:
   r_cubeTransform: {fileID: 496590846}
   l_rend: {fileID: 1996706981}
   l_cubeTransform: {fileID: 1996706983}
+  enableKeyboardMovement: 1
+  keyboardMoveSpeed: 15.19
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -755,7 +757,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &1699548949
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -773,7 +775,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -883,7 +885,7 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -961,6 +963,68 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2000894218
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2000894219}
+  - component: {fileID: 2000894220}
+  m_Layer: 0
+  m_Name: BubbleSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2000894219
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2000894218}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2000894220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2000894218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0397ae0e838a95644a2eac93f8e539e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BubbleSpawner
+  tracking: {fileID: 771276630}
+  bubbleDataFile: {fileID: 4900000, guid: 0a329d0643d8caa43b0137f04b441a25, type: 3}
+  basicBubblePrefab: {fileID: 3602307196092336077, guid: 14646fe8a7473eb41b2fd69eeee24cfe, type: 3}
+  bothHandsBubblePrefab: {fileID: 2910902869406276152, guid: 6ef4625517eb6d946815940481767468, type: 3}
+  doubleTapBubblePrefab: {fileID: 7402518358561943972, guid: 5150b7de95c41dc439cc60155dd26b2f, type: 3}
+  basicBubbleColor: {r: 0, g: 0, b: 1, a: 1}
+  bothHandsBubbleColor: {r: 1, g: 0, b: 0, a: 1}
+  doubleTapBubbleColor: {r: 0, g: 1, b: 0, a: 1}
+  playAreaMin: {x: -10, y: 4.5}
+  playAreaMax: {x: 10, y: 19.5}
+  bubbleRadius: 0.5
+  interactionRadius: 0.5
+  wordHeightOffset: 0.65
+  labelFontSize: 96
+  labelCharacterSize: 0.08
+  maxBubbles: 10
+  spawnInterval: 1.25
+  spawnBurstCount: 3
 --- !u!1 &2047148171
 GameObject:
   m_ObjectHideFlags: 0
@@ -979,7 +1043,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &2047148172
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -997,7 +1061,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -1086,3 +1150,4 @@ SceneRoots:
   - {fileID: 1699548952}
   - {fileID: 496590846}
   - {fileID: 1996706983}
+  - {fileID: 2000894219}
