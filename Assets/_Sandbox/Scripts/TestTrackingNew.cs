@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using extOSC;
 
-public class TestTracking : MonoBehaviour
+public class TestTrackingNew : MonoBehaviour
 {
     private OSCReceiver temp;
     [SerializeField] private MeshRenderer r_rend;
@@ -28,7 +28,6 @@ public class TestTracking : MonoBehaviour
     public Transform LeftHandTransform => l_cubeTransform;
     public bool RightHandClosed => rightClosedValue > 0.5f;
     public bool LeftHandClosed => leftClosedValue > 0.5f;
-    private float zOffset = -12.5f;
 
     void Awake()
     {
