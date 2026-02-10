@@ -107,7 +107,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Nature
+  m_text: Mountain
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -134,7 +134,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 7.1
+  m_fontSize: 5.2
   m_fontSizeBase: 9
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -349,7 +349,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7b0ebe77e2326749b3eb5de741557f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Sandbox.Scripts.Bubble.BubbleEffect
+  _target: {fileID: 0}
   _effectDistance: 3
   _defaultColor: {r: 2.1213202, g: 2.1213202, b: 2.1213202, a: 1}
-  _effectColor: {r: 0.48073405, g: 2.076362, b: 2.6082377, a: 1}
-  _target: {fileID: 0}
+  _effectColor: {r: 0.96146804, g: 4.1527233, b: 5.216475, a: 1}

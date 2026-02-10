@@ -43,7 +43,8 @@ Material:
     - _count: 36
     - _countX: 44
     - _countY: 150
-    - _size: 0.022
+    - _fade: 6
+    - _size: 0.02
     - _speed: 0.55
     m_Colors:
     - _color: {r: 5.863898, g: 8.664927, b: 11.999482, a: 1}

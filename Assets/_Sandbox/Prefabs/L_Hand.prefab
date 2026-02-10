@@ -10,15 +10,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 125840022170876598, guid: 64e1a557495cdab46a25e3db238e36ff, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.5
+      value: -8.6
       objectReference: {fileID: 0}
     - target: {fileID: 125840022170876598, guid: 64e1a557495cdab46a25e3db238e36ff, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 13
+      value: 9.3
       objectReference: {fileID: 0}
     - target: {fileID: 125840022170876598, guid: 64e1a557495cdab46a25e3db238e36ff, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: 125840022170876598, guid: 64e1a557495cdab46a25e3db238e36ff, type: 3}
       propertyPath: m_LocalRotation.w
@@ -50,19 +50,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1777848938609950635, guid: 64e1a557495cdab46a25e3db238e36ff, type: 3}
       propertyPath: m_Color.b
-      value: 0.22745098
+      value: 1.2146596
       objectReference: {fileID: 0}
     - target: {fileID: 1777848938609950635, guid: 64e1a557495cdab46a25e3db238e36ff, type: 3}
       propertyPath: m_Color.g
-      value: 0.6392157
+      value: 4.8757486
       objectReference: {fileID: 0}
     - target: {fileID: 1777848938609950635, guid: 64e1a557495cdab46a25e3db238e36ff, type: 3}
       propertyPath: m_Color.r
-      value: 0.89411765
+      value: 7.999999
       objectReference: {fileID: 0}
     - target: {fileID: 3528366355337172596, guid: 64e1a557495cdab46a25e3db238e36ff, type: 3}
       propertyPath: m_Name
       value: L_Hand
+      objectReference: {fileID: 0}
+    - target: {fileID: 6991844038955400146, guid: 64e1a557495cdab46a25e3db238e36ff, type: 3}
+      propertyPath: _handColor.b
+      value: 1.2146596
+      objectReference: {fileID: 0}
+    - target: {fileID: 6991844038955400146, guid: 64e1a557495cdab46a25e3db238e36ff, type: 3}
+      propertyPath: _handColor.g
+      value: 4.8757486
+      objectReference: {fileID: 0}
+    - target: {fileID: 6991844038955400146, guid: 64e1a557495cdab46a25e3db238e36ff, type: 3}
+      propertyPath: _handColor.r
+      value: 7.999999
       objectReference: {fileID: 0}
     - target: {fileID: 7478455468555206039, guid: 64e1a557495cdab46a25e3db238e36ff, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
