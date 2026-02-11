@@ -853,8 +853,8 @@ MonoBehaviour:
   leftHand: {fileID: 1765232017}
   bubbleDataFile: {fileID: 4900000, guid: 0a329d0643d8caa43b0137f04b441a25, type: 3}
   basicBubblePrefab: {fileID: 3997041098584715977, guid: 7a0da181d6584084fb1fd475c3b1e385, type: 3}
-  bothHandsBubblePrefab: {fileID: 3997041098584715977, guid: 7a0da181d6584084fb1fd475c3b1e385, type: 3}
-  doubleTapBubblePrefab: {fileID: 3997041098584715977, guid: 7a0da181d6584084fb1fd475c3b1e385, type: 3}
+  bothHandsBubblePrefab: {fileID: 3997041098584715977, guid: f2391ac5ec680ba47b0b8fc56216d4cc, type: 3}
+  doubleTapBubblePrefab: {fileID: 3997041098584715977, guid: 2f6808f6277acb14ca52d52ac0f068eb, type: 3}
   playAreaMin: {x: -10, y: 4.5}
   playAreaMax: {x: 10, y: 19.5}
   bubbleRadius: 0.5
@@ -988,87 +988,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff71ed61a1d84a7a93095ed781e8fe66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Sandbox.Scripts.Hand.HandBehaviour
---- !u!1001 &1631016555
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 935858012513732538, guid: 7a0da181d6584084fb1fd475c3b1e385, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 935858012513732538, guid: 7a0da181d6584084fb1fd475c3b1e385, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 13.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 935858012513732538, guid: 7a0da181d6584084fb1fd475c3b1e385, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 935858012513732538, guid: 7a0da181d6584084fb1fd475c3b1e385, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 935858012513732538, guid: 7a0da181d6584084fb1fd475c3b1e385, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 935858012513732538, guid: 7a0da181d6584084fb1fd475c3b1e385, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 935858012513732538, guid: 7a0da181d6584084fb1fd475c3b1e385, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 935858012513732538, guid: 7a0da181d6584084fb1fd475c3b1e385, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 935858012513732538, guid: 7a0da181d6584084fb1fd475c3b1e385, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 935858012513732538, guid: 7a0da181d6584084fb1fd475c3b1e385, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1374572612642003319, guid: 7a0da181d6584084fb1fd475c3b1e385, type: 3}
-      propertyPath: _lHand
-      value: 
-      objectReference: {fileID: 1765232015}
-    - target: {fileID: 1374572612642003319, guid: 7a0da181d6584084fb1fd475c3b1e385, type: 3}
-      propertyPath: _rHand
-      value: 
-      objectReference: {fileID: 1589504383}
-    - target: {fileID: 3997041098584715977, guid: 7a0da181d6584084fb1fd475c3b1e385, type: 3}
-      propertyPath: m_Name
-      value: RandomBubble
-      objectReference: {fileID: 0}
-    - target: {fileID: 3997041098584715977, guid: 7a0da181d6584084fb1fd475c3b1e385, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6144434170473859116, guid: 7a0da181d6584084fb1fd475c3b1e385, type: 3}
-      propertyPath: m_text
-      value: asdfasdfsdf
-      objectReference: {fileID: 0}
-    - target: {fileID: 6144434170473859116, guid: 7a0da181d6584084fb1fd475c3b1e385, type: 3}
-      propertyPath: m_fontSize
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8775058156694746163, guid: 7a0da181d6584084fb1fd475c3b1e385, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 7a0da181d6584084fb1fd475c3b1e385, type: 3}
 --- !u!1 &1709815383
 GameObject:
   m_ObjectHideFlags: 0
@@ -1080,6 +999,7 @@ GameObject:
   - component: {fileID: 1709815384}
   - component: {fileID: 1709815385}
   - component: {fileID: 1709815386}
+  - component: {fileID: 1709815387}
   m_Layer: 0
   m_Name: OSCManager
   m_TagString: Untagged
@@ -1128,13 +1048,29 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1709815383}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 870e55b06d864b76802d6b2a0823becc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Sandbox.Scripts.Managers.OSCManager
   _rHand: {fileID: 1589504383}
   _lHand: {fileID: 1765232015}
+--- !u!114 &1709815387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1709815383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e038867b5335ff4bb352ceb1025ab79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TestTrackingNew
+  rightHand: {fileID: 1828342198}
+  leftHand: {fileID: 1765232017}
+  enableKeyboardMovement: 0
+  keyboardMoveSpeed: 5
 --- !u!1001 &1765232014
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1496,4 +1432,3 @@ SceneRoots:
   - {fileID: 148957297}
   - {fileID: 1313964257}
   - {fileID: 1141947307}
-  - {fileID: 1631016555}

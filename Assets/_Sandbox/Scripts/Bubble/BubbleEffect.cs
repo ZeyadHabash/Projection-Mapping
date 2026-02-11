@@ -12,17 +12,18 @@ namespace _Sandbox.Scripts.Bubble
 
         [SerializeField] private float _effectDistance = 1.2f;
         [SerializeField] [ColorUsage(true, true)] private Color _defaultColor = Color.gray;
+        [SerializeField] private float _showDuration = 0.5f; 
 
         private HandBehaviour rHand; 
         private HandBehaviour lHand; 
         private TextMeshPro word;
-        private VisualEffect vfx;
+        private VisualEffect parentVFX;
+        private VisualEffect childVFX;
         private Sequence showSequence;
 
-        private float showDuration = 0.4f;
-
         private void Awake() {
-            vfx = GetComponent<VisualEffect>();
+            parentVFX = GetComponent<VisualEffect>();
+            childVFX = GetComponentInChildren<VisualEffect>();
             word = GetComponentInChildren<TextMeshPro>();
             SetupShowSequence();
         }
@@ -34,9 +35,9 @@ namespace _Sandbox.Scripts.Bubble
 
         private void SetupShowSequence() {
             showSequence = DOTween.Sequence();
-            showSequence.Join(transform.DOMoveZ(0, showDuration).From(8));
-            showSequence.Join(transform.DOScale(1, showDuration).From(0f));
-            showSequence.Join(word.DOFade(1, showDuration).From(0));
+            showSequence.Join(transform.DOMoveZ(0, _showDuration).From(8));
+            showSequence.Join(transform.DOScale(1, _showDuration).From(0f));
+            showSequence.Join(word.DOFade(1, _showDuration).From(0));
             showSequence.SetManual(gameObject);
         }
 
@@ -66,10 +67,10 @@ namespace _Sandbox.Scripts.Bubble
         }
 
         private void UpdateBubbleColor(HandBehaviour hand, float distance) {
-
             float t = 1.0f - Mathf.Clamp01(distance / (_effectDistance));
             Color finalColor = Color.Lerp(_defaultColor, hand.HandColor, t);
-            vfx.SetVector4("color", finalColor);
+            parentVFX.SetVector4("color", finalColor);
+            if (childVFX != null) childVFX.SetVector4("color", finalColor); //TODO: I hate this... when double.. this should be .. I hate this..
         }
     }
 }
