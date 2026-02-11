@@ -49,6 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::_Sandbox.Scripts.Hand.HandBehaviour
   _handColor: {r: 1.1839999, g: 5.1397133, b: 7.999999, a: 1}
   ring: {fileID: 1316821318268797480}
+  sphere: {fileID: 7478455468555206039}
   _lensIntensity: 0.03
   _lensScale: 0.02
   _lightIntensity: 0.18

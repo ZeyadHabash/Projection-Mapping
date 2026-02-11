@@ -10,14 +10,16 @@ namespace _Sandbox.Scripts.Hand
     {
         [SerializeField] [ColorUsage(true, true)] private Color _handColor = Color.cyan;
         [SerializeField] private MeshRenderer ring;
+        [SerializeField] private MeshRenderer sphere;
         
         private LensFlareComponentSRP lensFlare;
         private Light handsLight;
         private static readonly int BaseColor = Shader.PropertyToID("_BaseColor");
         private static readonly int EmissionColor = Shader.PropertyToID("_EmissionColor");
         private Material ringMat;
+        private Material sphereMat;
         private Sequence closeSequence;
-        private Sequence showSequence;
+        private Sequence hideSequence;
         
         [Header("Close Effect")]
         [SerializeField] private float _lensIntensity = 0.2f; 
@@ -33,7 +35,9 @@ namespace _Sandbox.Scripts.Hand
             lensFlare = GetComponentInChildren<LensFlareComponentSRP>();
             handsLight = GetComponentInChildren<Light>();
             ringMat = ring.material;
+            sphereMat = sphere.material;
             SetupCloseSequence();
+            SetupHideSequence();
         }
         
         private void SetupCloseSequence() {
@@ -55,6 +59,28 @@ namespace _Sandbox.Scripts.Hand
 
             closeSequence.SetManual(gameObject);
         }
+        
+                
+        private void SetupHideSequence() {
+            hideSequence = DOTween.Sequence();
+
+            hideSequence.Join(DOTween.To(() => lensFlare.intensity, 
+                x => lensFlare.intensity = x, 
+                0, 
+                _duration));
+
+            hideSequence.Join(DOTween.To(() => lensFlare.scale, 
+                x => lensFlare.scale = x, 
+                0, 
+                _duration));
+
+            hideSequence.Join(handsLight.DOIntensity(0, _duration));
+
+            hideSequence.Join(sphereMat.DOFade(0, _duration));
+            
+            hideSequence.SetManual(gameObject);
+        }
+
 
         private void Update() {
             if (test) CloseEffect();
@@ -67,18 +93,10 @@ namespace _Sandbox.Scripts.Hand
         }
 
         private void CloseEffect() {
-            // if (ring != null) ring.enabled = true;
-            // lensFlare.intensity = initLensIntensity + _lensIntensity;
-            // lensFlare.scale = initLensScale + _lensScale;
-            // light.intensity = initLightIntensity + _lightIntensity;
             closeSequence.PlayForward();
         }
 
         private void OpenEffect() {
-            // if (ring != null) ring.enabled = false;
-            // lensFlare.intensity = initLensIntensity;
-            // lensFlare.scale = initLensScale;
-            // light.intensity = initLightIntensity;
             closeSequence.PlayBackwards();
         }
 
