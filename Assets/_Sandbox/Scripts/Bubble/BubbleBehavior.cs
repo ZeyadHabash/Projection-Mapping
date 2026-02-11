@@ -64,11 +64,11 @@ public class BubbleBehavior : MonoBehaviour
     {
         var hand = other.GetComponent<HandController>();
         if (hand == null) return;
-
-        if (hand == rightHand)
+        
+        if (hand == rightHand && !rightHand.IsClosed)
             rightTouching = true;
 
-        if (hand == leftHand)
+        if (hand == leftHand && !leftHand.IsClosed)
             leftTouching = true;
     }
 
@@ -89,15 +89,15 @@ public class BubbleBehavior : MonoBehaviour
         if (rightHand == null && leftHand == null)
             return;
 
-        bool rightInteracting = rightTouching && rightHand != null && rightHand.IsClosed;
-        bool leftInteracting = leftTouching && leftHand != null && leftHand.IsClosed;
+        bool rightInteracting = rightTouching && rightHand  && rightHand.IsClosed;
+        bool leftInteracting = leftTouching && leftHand && leftHand.IsClosed;
 
         switch (type)
         {
             case BubbleType.Basic:
                 if (rightInteracting || leftInteracting)
                 {
-                    Collect();
+                        Collect();
                 }
                 break;
 

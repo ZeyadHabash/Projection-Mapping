@@ -6,15 +6,15 @@ namespace _Sandbox.Scripts.Hand
     [RequireComponent(typeof(Rigidbody))]
     public class HandController : MonoBehaviour
     {
-        // [SerializeField] private MeshRenderer rend;
-
+        private HandEffect handEffect;
+        
         private float x;
         private float y;
         private float closedValue;
 
         private const float HandZ = -0.5f;
-        private float handYOffset = 4.5f * 2;
-        private const float UNITS_RATIO = 10f;
+        private const float HandYOffset = 4.5f * 2;
+        private const float UnitsRatio = 10f;
 
         public bool IsClosed => closedValue > 0.5f;
         public Transform HandTransform => transform;
@@ -28,28 +28,27 @@ namespace _Sandbox.Scripts.Hand
             var col = GetComponent<Collider>();
             col.isTrigger = true;
 
-            // if (rend == null)
-            //     rend = GetComponent<MeshRenderer>();
+            handEffect = GetComponent<HandEffect>();
         }
 
         #region OSC INPUT
 
         public void SetRawX(float rawX)
         {
-            x = rawX * UNITS_RATIO;
+            x = rawX * UnitsRatio;
             UpdatePosition();
         }
 
         public void SetRawY(float rawY)
         {
-            y = rawY * UNITS_RATIO + handYOffset;
+            y = rawY * UnitsRatio + HandYOffset;
             UpdatePosition();
         }
 
         public void SetClosed(float value)
         {
             closedValue = value;
-            UpdateVisual();
+            handEffect.SetState(closedValue);
         }
 
         #endregion
@@ -66,7 +65,7 @@ namespace _Sandbox.Scripts.Hand
         public void SetKeyboardClosed(bool isClosed)
         {
             closedValue = isClosed ? 1f : 0f;
-            UpdateVisual();
+            handEffect.SetState(closedValue);
         }
 
         #endregion
@@ -75,11 +74,6 @@ namespace _Sandbox.Scripts.Hand
         {
             transform.position = new Vector3(x, y, HandZ);
         }
-
-        private void UpdateVisual()
-        {
-            // if (rend != null)
-            //     rend.material.color = IsClosed ? Color.red : Color.cyan;
-        }
+        
     }
 }

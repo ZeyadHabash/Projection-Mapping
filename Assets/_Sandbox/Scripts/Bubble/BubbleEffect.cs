@@ -13,8 +13,8 @@ namespace _Sandbox.Scripts.Bubble
         [SerializeField] private float _effectDistance = 1.2f;
         [SerializeField] [ColorUsage(true, true)] private Color _defaultColor = Color.gray;
 
-        private HandBehaviour rHand; 
-        private HandBehaviour lHand; 
+        private HandEffect rHand; 
+        private HandEffect lHand; 
         private TextMeshPro word;
         private VisualEffect vfx;
         private Sequence showSequence;
@@ -41,8 +41,8 @@ namespace _Sandbox.Scripts.Bubble
         }
 
         public void Init(HandController right, HandController left) {
-            rHand = right.GetComponent<HandBehaviour>();
-            lHand = right.GetComponent<HandBehaviour>();
+            rHand = right.GetComponent<HandEffect>();
+            lHand = right.GetComponent<HandEffect>();
             Show();
         }
 
@@ -65,7 +65,7 @@ namespace _Sandbox.Scripts.Bubble
             else UpdateBubbleColor(rHand, rDistance);
         }
 
-        private void UpdateBubbleColor(HandBehaviour hand, float distance) {
+        private void UpdateBubbleColor(HandEffect hand, float distance) {
 
             float t = 1.0f - Mathf.Clamp01(distance / (_effectDistance));
             Color finalColor = Color.Lerp(_defaultColor, hand.HandColor, t);

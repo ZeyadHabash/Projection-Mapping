@@ -859,9 +859,9 @@ MonoBehaviour:
   playAreaMax: {x: 10, y: 19.5}
   bubbleRadius: 0.5
   wordHeightOffset: 0.65
-  maxBubbles: 10
-  spawnInterval: 1.25
-  spawnBurstCount: 3
+  maxBubbles: 30
+  spawnInterval: 0.8
+  spawnBurstCount: 1
 --- !u!4 &1141947307
 Transform:
   m_ObjectHideFlags: 0
@@ -1079,7 +1079,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1709815384}
   - component: {fileID: 1709815385}
-  - component: {fileID: 1709815386}
+  - component: {fileID: 1709815387}
   m_Layer: 0
   m_Name: OSCManager
   m_TagString: Untagged
@@ -1121,7 +1121,7 @@ MonoBehaviour:
   _localHostMode: 0
   _localHost: 10.145.3.250
   _localPort: 7001
---- !u!114 &1709815386
+--- !u!114 &1709815387
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1130,11 +1130,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1709815383}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 870e55b06d864b76802d6b2a0823becc, type: 3}
+  m_Script: {fileID: 11500000, guid: 9e038867b5335ff4bb352ceb1025ab79, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::_Sandbox.Scripts.Managers.OSCManager
-  _rHand: {fileID: 1589504383}
-  _lHand: {fileID: 1765232015}
+  m_EditorClassIdentifier: Assembly-CSharp::TestTrackingNew
+  rightHand: {fileID: 1828342198}
+  leftHand: {fileID: 1765232017}
+  enableKeyboardMovement: 1
+  keyboardMoveSpeed: 15
 --- !u!1001 &1765232014
 PrefabInstance:
   m_ObjectHideFlags: 0
