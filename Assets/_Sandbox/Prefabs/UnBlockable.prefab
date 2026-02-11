@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 7877848084309801081}
   - component: {fileID: 1464136011204358926}
   - component: {fileID: 1331562722358955579}
-  - component: {fileID: -303591887169909252}
   - component: {fileID: -2476102074657560051}
   - component: {fileID: -2430659111261183704}
+  - component: {fileID: -3944364733471349629}
   m_Layer: 0
   m_Name: UnBlockable
   m_TagString: Untagged
@@ -117,19 +117,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
---- !u!114 &-303591887169909252
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2028731372892648440}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e299d6e256555914ea670a6a7ffc86a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyMove
-  speed: 5
 --- !u!114 &-2476102074657560051
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -154,4 +141,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d63b7b4bafa79e4eb48b42b7f4ce611, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DodgeCylinder
-  lifeTime: 2
+  lifeTime: 5
+--- !u!114 &-3944364733471349629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2028731372892648440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 253c652b3da76cf438846e4c7c07d704, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StraightLineMove
+  speed: 8

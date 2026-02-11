@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6542013096565456280}
   - component: {fileID: -1990324727168037511}
   - component: {fileID: 6620828681893780726}
-  - component: {fileID: -7272648790266877181}
+  - component: {fileID: -8223394291414133851}
   m_Layer: 0
   m_Name: SlowHand2
   m_TagString: Untagged
@@ -140,7 +140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81b6403c17ea50c41a08abb59c54a0b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyDamage
---- !u!114 &-7272648790266877181
+--- !u!114 &-8223394291414133851
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -149,6 +149,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 78967440156450873}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe88d22998a7f504aa759ca280521c98, type: 3}
+  m_Script: {fileID: 11500000, guid: d60e32f909346104fa7abe2dc9402ffb, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ClickToDestroy
+  m_EditorClassIdentifier: Assembly-CSharp::HandsToDestroy

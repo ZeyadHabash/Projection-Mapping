@@ -4,7 +4,7 @@ public class EnemySpawner : MonoBehaviour
 {
     public GameObject cubePrefab;
     public GameObject capsulePrefab;
-    public GameObject cylinderPrefab;
+    
 
     public float spawnRate = 1.5f;
 
@@ -24,15 +24,14 @@ public class EnemySpawner : MonoBehaviour
     {
         Vector3 pos = GetRandomGrayPosition();
 
-        int r = Random.Range(0, 3);
+        int r = Random.Range(0,2);
         GameObject enemy;
 
         if (r == 0)
             enemy = Instantiate(cubePrefab, pos, Quaternion.identity);
         else if (r == 1)
             enemy = Instantiate(capsulePrefab, pos, Quaternion.identity);
-        else
-            enemy = Instantiate(cylinderPrefab, pos, Quaternion.identity);
+       
     }
 
     Vector3 GetRandomGrayPosition()
