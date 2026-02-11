@@ -24,7 +24,8 @@ public class EnemySpawner : MonoBehaviour
     {
         Vector3 pos = GetRandomGrayPosition();
 
-        int r = Random.Range(0,2);
+        // int r = Random.Range(0,2);
+        int r = 1;
         GameObject enemy;
 
         if (r == 0)

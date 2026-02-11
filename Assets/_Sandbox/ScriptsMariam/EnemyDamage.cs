@@ -1,13 +1,17 @@
+using _Sandbox.Scripts.IdentityCore;
 using UnityEngine;
 
-public class EnemyDamage : MonoBehaviour
+namespace _Sandbox.ScriptsMariam
 {
-    void OnTriggerEnter(Collider other)
+    public class EnemyDamage : MonoBehaviour
     {
-        if (other.CompareTag("Player"))
+        void OnTriggerEnter(Collider other)
         {
-            other.GetComponent<PlayerMovement>().TakeDamage();
-            Destroy(gameObject);
+            if (other.CompareTag("Player"))
+            {
+                other.GetComponent<CoreHealth>().TakeDamage();
+                Destroy(gameObject);
+            }
         }
     }
 }
