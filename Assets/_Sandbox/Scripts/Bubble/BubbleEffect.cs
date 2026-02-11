@@ -14,12 +14,15 @@ namespace _Sandbox.Scripts.Bubble
         [SerializeField] [ColorUsage(true, true)] private Color _defaultColor = Color.gray;
         [SerializeField] private float _showDuration = 0.5f; 
 
-        private HandBehaviour rHand; 
-        private HandBehaviour lHand; 
+        private HandEffect rHand;
+        private HandEffect lHand;
         private TextMeshPro word;
         private VisualEffect parentVFX;
         private VisualEffect childVFX;
         private Sequence showSequence;
+
+        private const float HideTimeScale = 0.4f;
+        public float HideDuration => _showDuration / HideTimeScale;
 
         private void Awake() {
             parentVFX = GetComponent<VisualEffect>();
@@ -29,11 +32,13 @@ namespace _Sandbox.Scripts.Bubble
         }
 
 
-        private void Update() {
+        private void Update()
+        {
             SetClosestBubbleColor();
         }
 
-        private void SetupShowSequence() {
+        private void SetupShowSequence()
+        {
             showSequence = DOTween.Sequence();
             showSequence.Join(transform.DOMoveZ(0, _showDuration).From(8));
             showSequence.Join(transform.DOScale(1, _showDuration).From(0f));
@@ -41,23 +46,27 @@ namespace _Sandbox.Scripts.Bubble
             showSequence.SetManual(gameObject);
         }
 
-        public void Init(HandController right, HandController left) {
-            rHand = right.GetComponent<HandBehaviour>();
-            lHand = right.GetComponent<HandBehaviour>();
+        public void Init(HandController right, HandController left)
+        {
+            rHand = right.GetComponent<HandEffect>();
+            lHand = right.GetComponent<HandEffect>();
             Show();
         }
 
-        public void Show() {
+        public void Show()
+        {
             showSequence.timeScale = 1f;
             showSequence.PlayForward();
         }
 
-        public void Hide() {
-            showSequence.timeScale = 0.4f;
+        public void Hide()
+        {
+            showSequence.timeScale = HideTimeScale;
             showSequence.PlayBackwards();
         }
 
-        private void SetClosestBubbleColor() {
+        private void SetClosestBubbleColor()
+        {
             if (lHand == null || rHand == null) return;
             var position = transform.position;
             float lDistance = Vector3.Distance(position, lHand.transform.position);
@@ -66,7 +75,9 @@ namespace _Sandbox.Scripts.Bubble
             else UpdateBubbleColor(rHand, rDistance);
         }
 
-        private void UpdateBubbleColor(HandBehaviour hand, float distance) {
+        private void UpdateBubbleColor(HandEffect hand, float distance)
+        {
+
             float t = 1.0f - Mathf.Clamp01(distance / (_effectDistance));
             Color finalColor = Color.Lerp(_defaultColor, hand.HandColor, t);
             parentVFX.SetVector4("color", finalColor);
