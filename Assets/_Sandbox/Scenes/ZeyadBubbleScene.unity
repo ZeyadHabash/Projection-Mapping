@@ -395,6 +395,8 @@ GameObject:
   - component: {fileID: 496590845}
   - component: {fileID: 496590844}
   - component: {fileID: 496590843}
+  - component: {fileID: 496590847}
+  - component: {fileID: 496590848}
   m_Layer: 0
   m_Name: r_hand
   m_TagString: Untagged
@@ -495,6 +497,46 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &496590847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 496590842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94ee31616510c7b4ebe86edc7dcd75e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HandController
+  rend: {fileID: 496590844}
+--- !u!54 &496590848
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 496590842}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &511252606
 GameObject:
   m_ObjectHideFlags: 0
@@ -684,10 +726,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e038867b5335ff4bb352ceb1025ab79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TestTracking
-  r_rend: {fileID: 496590844}
-  r_cubeTransform: {fileID: 496590846}
-  l_rend: {fileID: 1996706981}
-  l_cubeTransform: {fileID: 1996706983}
+  rightHand: {fileID: 496590847}
+  leftHand: {fileID: 1996706984}
   enableKeyboardMovement: 1
   keyboardMoveSpeed: 15.19
 --- !u!1 &832575517
@@ -863,6 +903,8 @@ GameObject:
   - component: {fileID: 1996706982}
   - component: {fileID: 1996706981}
   - component: {fileID: 1996706980}
+  - component: {fileID: 1996706984}
+  - component: {fileID: 1996706985}
   m_Layer: 0
   m_Name: l_hand
   m_TagString: Untagged
@@ -963,6 +1005,46 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1996706984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1996706979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94ee31616510c7b4ebe86edc7dcd75e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HandController
+  rend: {fileID: 1996706981}
+--- !u!54 &1996706985
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1996706979}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &2000894218
 GameObject:
   m_ObjectHideFlags: 0
@@ -1007,18 +1089,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0397ae0e838a95644a2eac93f8e539e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BubbleSpawner
-  tracking: {fileID: 771276630}
+  rightHand: {fileID: 496590847}
+  leftHand: {fileID: 1996706984}
   bubbleDataFile: {fileID: 4900000, guid: 0a329d0643d8caa43b0137f04b441a25, type: 3}
-  basicBubblePrefab: {fileID: 3602307196092336077, guid: 14646fe8a7473eb41b2fd69eeee24cfe, type: 3}
+  basicBubblePrefab: {fileID: 2910902869406276152, guid: 6ef4625517eb6d946815940481767468, type: 3}
   bothHandsBubblePrefab: {fileID: 2910902869406276152, guid: 6ef4625517eb6d946815940481767468, type: 3}
-  doubleTapBubblePrefab: {fileID: 7402518358561943972, guid: 5150b7de95c41dc439cc60155dd26b2f, type: 3}
+  doubleTapBubblePrefab: {fileID: 2910902869406276152, guid: 6ef4625517eb6d946815940481767468, type: 3}
   basicBubbleColor: {r: 0, g: 0, b: 1, a: 1}
   bothHandsBubbleColor: {r: 1, g: 0, b: 0, a: 1}
   doubleTapBubbleColor: {r: 0, g: 1, b: 0, a: 1}
   playAreaMin: {x: -10, y: 4.5}
   playAreaMax: {x: 10, y: 19.5}
   bubbleRadius: 0.5
-  interactionRadius: 0.5
   wordHeightOffset: 0.65
   labelFontSize: 96
   labelCharacterSize: 0.08
