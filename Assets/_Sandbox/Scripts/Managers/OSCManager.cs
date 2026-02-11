@@ -29,8 +29,8 @@ namespace _Sandbox.Scripts.Managers
         }
 
         private void Update() {
-            // _rHand.SetPosition(rx, ry); //hands should reference manager instead... maybe
-            // _lHand.SetPosition(lx, ly);
+            _rHand.SetPosition(rx, ry); //hands should reference manager instead... maybe
+            _lHand.SetPosition(lx, ly);
         }
 
         void Start() {

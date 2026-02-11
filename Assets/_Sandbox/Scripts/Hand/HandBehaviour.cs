@@ -83,8 +83,8 @@ namespace _Sandbox.Scripts.Hand
 
 
         private void Update() {
-            if (test) CloseEffect();
-            else OpenEffect();
+            // if (test) CloseEffect();
+            // else OpenEffect();
         }
 
         public void SetState(float isClosed) {
