@@ -5,6 +5,7 @@ public class PlayerMovement : MonoBehaviour
     public float speed = 5f;
     private Renderer rend;
     private Color originalColor;
+    public bool IsMoving;
 
     void Start()
     {
@@ -14,6 +15,10 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        if (!IsMoving )
+        {
+            return;
+        }
         float h = Input.GetAxis("Horizontal"); // A D
         float v = Input.GetAxis("Vertical");   // W S
 
