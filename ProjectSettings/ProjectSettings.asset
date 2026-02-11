@@ -826,22 +826,24 @@ PlayerSettings:
   webWasm2023: 0
   webEnableSubmoduleStrippingCompatibility: 0
   scriptingDefineSymbols:
-    Android: EXTOSC
-    EmbeddedLinux: EXTOSC
-    GameCoreScarlett: EXTOSC
-    GameCoreXboxOne: EXTOSC
-    Kepler: EXTOSC
-    LinuxHeadlessSimulation: EXTOSC
-    Nintendo Switch: EXTOSC
-    Nintendo Switch 2: EXTOSC
-    PS4: EXTOSC
-    PS5: EXTOSC
-    QNX: EXTOSC
-    Standalone: EXTOSC
-    VisionOS: EXTOSC
-    WebGL: EXTOSC
-    XboxOne: EXTOSC
-    tvOS: EXTOSC
+    Android: EXTOSC;DOTWEEN
+    EmbeddedLinux: EXTOSC;DOTWEEN
+    GameCoreScarlett: EXTOSC;DOTWEEN
+    GameCoreXboxOne: EXTOSC;DOTWEEN
+    Kepler: EXTOSC;DOTWEEN
+    LinuxHeadlessSimulation: EXTOSC;DOTWEEN
+    Nintendo Switch: EXTOSC;DOTWEEN
+    Nintendo Switch 2: EXTOSC;DOTWEEN
+    PS4: EXTOSC;DOTWEEN
+    PS5: EXTOSC;DOTWEEN
+    QNX: EXTOSC;DOTWEEN
+    Standalone: EXTOSC;DOTWEEN
+    VisionOS: EXTOSC;DOTWEEN
+    WebGL: EXTOSC;DOTWEEN
+    Windows Store Apps: DOTWEEN
+    XboxOne: EXTOSC;DOTWEEN
+    iPhone: DOTWEEN
+    tvOS: EXTOSC;DOTWEEN
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend:

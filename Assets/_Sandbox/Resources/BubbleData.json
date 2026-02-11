@@ -1,0 +1,114 @@
+{
+  "bubbles": [
+    {
+      "word": "BASIC",
+      "rgby": [0.25, 0.8, 1.0, 0.15],
+      "type": "Basic"
+    },
+    {
+      "word": "PAIR",
+      "rgby": [0.4, 1.0, 0.4, 0.35],
+      "type": "BothHands"
+    },
+    {
+      "word": "SPARK",
+      "rgby": [1.0, 0.85, 0.2, 0.2],
+      "type": "Basic"
+    },
+    {
+      "word": "WAVE",
+      "rgby": [0.2, 0.6, 1.0, 0.3],
+      "type": "Basic"
+    },
+    {
+      "word": "FUSE",
+      "rgby": [1.0, 0.4, 0.2, 0.45],
+      "type": "DoubleTap"
+    },
+    {
+      "word": "SYNC",
+      "rgby": [0.4, 1.0, 0.7, 0.25],
+      "type": "BothHands"
+    },
+    {
+      "word": "GLOW",
+      "rgby": [0.9, 0.5, 1.0, 0.4],
+      "type": "Basic"
+    },
+    {
+      "word": "DRIFT",
+      "rgby": [0.3, 0.9, 0.9, 0.55],
+      "type": "Basic"
+    },
+    {
+      "word": "LINK",
+      "rgby": [0.2, 1.0, 0.3, 0.35],
+      "type": "BothHands"
+    },
+    {
+      "word": "FLARE",
+      "rgby": [1.0, 0.3, 0.1, 0.5],
+      "type": "DoubleTap"
+    },
+    {
+      "word": "RUSH",
+      "rgby": [0.95, 0.7, 0.2, 0.2],
+      "type": "Basic"
+    },
+    {
+      "word": "ECHO",
+      "rgby": [0.6, 0.7, 1.0, 0.3],
+      "type": "Basic"
+    },
+    {
+      "word": "CLASP",
+      "rgby": [0.3, 1.0, 0.6, 0.4],
+      "type": "BothHands"
+    },
+    {
+      "word": "PULSE",
+      "rgby": [1.0, 0.2, 0.6, 0.6],
+      "type": "DoubleTap"
+    },
+    {
+      "word": "HALO",
+      "rgby": [0.9, 0.9, 0.5, 0.3],
+      "type": "Basic"
+    },
+    {
+      "word": "TETHER",
+      "rgby": [0.2, 0.95, 0.5, 0.45],
+      "type": "BothHands"
+    },
+    {
+      "word": "FLOOD",
+      "rgby": [0.1, 0.6, 0.9, 0.55],
+      "type": "Basic"
+    },
+    {
+      "word": "QUICK",
+      "rgby": [1.0, 0.8, 0.1, 0.2],
+      "type": "Basic"
+    },
+    {
+      "word": "KNOT",
+      "rgby": [0.4, 1.0, 0.4, 0.5],
+      "type": "BothHands"
+    },
+    {
+      "word": "STAMP",
+      "rgby": [0.95, 0.35, 0.25, 0.6],
+      "type": "DoubleTap"
+    },
+    {
+      "word": "RISE",
+      "rgby": [0.6, 0.95, 1.0, 0.25],
+      "type": "Basic"
+    },
+    {
+      "word": "DOUBLE",
+      "rgby": [1.0, 0.6, 0.2, 0.6],
+      "type": "DoubleTap"
+    }
+  ]
+}
