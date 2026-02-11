@@ -41,10 +41,14 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     - _count: 36
-    - _size: 0.022
+    - _countX: 44
+    - _countY: 150
+    - _fade: 6
+    - _size: 0.02
     - _speed: 0.55
     m_Colors:
-    - _color: {r: 5.863898, g: 8.664927, b: 11.999482, a: 1}
+    - _Color: {r: 3.8712614, g: 7.1775174, b: 8.5848055, a: 1}
+    - _color: {r: 4.4038095, g: 7.8492694, b: 11.999482, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &3898539556641077357
