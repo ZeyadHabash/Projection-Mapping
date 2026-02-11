@@ -47,7 +47,7 @@ Material:
     - _size: 0.02
     - _speed: 0.55
     m_Colors:
-    - _Color: {r: 3.8712614, g: 7.1775174, b: 8.5848055, a: 1}
+    - _Color: {r: 10.488619, g: 2.1175134, b: 2.9889073, a: 1}
     - _color: {r: 4.4038095, g: 7.8492694, b: 11.999482, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

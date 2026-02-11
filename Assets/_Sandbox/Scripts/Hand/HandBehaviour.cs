@@ -1,5 +1,4 @@
-﻿using System;
-using DG.Tweening;
+﻿using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Rendering;
 using Utilities.Extensions;
@@ -101,7 +100,7 @@ namespace _Sandbox.Scripts.Hand
         }
 
         public void SetPosition(float x, float y) {
-            transform.position = new Vector3(x, y, 0);
+            // transform.position = new Vector3(x, y, 0);
         }
         
         private void OnValidate() {

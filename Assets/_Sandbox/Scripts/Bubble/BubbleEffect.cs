@@ -10,19 +10,17 @@ namespace _Sandbox.Scripts.Bubble
     public class BubbleEffect : MonoBehaviour
     {
 
-        [SerializeField] private HandBehaviour _rHand; 
-        [SerializeField] private HandBehaviour _lHand; 
         [SerializeField] private float _effectDistance = 1.2f;
         [SerializeField] [ColorUsage(true, true)] private Color _defaultColor = Color.gray;
 
+        private HandBehaviour rHand; 
+        private HandBehaviour lHand; 
         private TextMeshPro word;
         private VisualEffect vfx;
         private Sequence showSequence;
 
         private float showDuration = 0.4f;
 
-        [SerializeField] private bool test = false;
-        
         private void Awake() {
             vfx = GetComponent<VisualEffect>();
             word = GetComponentInChildren<TextMeshPro>();
@@ -32,8 +30,6 @@ namespace _Sandbox.Scripts.Bubble
 
         private void Update() {
             SetClosestBubbleColor();
-            if (test) Show();
-            else Hide();
         }
 
         private void SetupShowSequence() {
@@ -42,6 +38,12 @@ namespace _Sandbox.Scripts.Bubble
             showSequence.Join(transform.DOScale(1, showDuration).From(0f));
             showSequence.Join(word.DOFade(1, showDuration).From(0));
             showSequence.SetManual(gameObject);
+        }
+
+        public void Init(HandController right, HandController left) {
+            rHand = right.GetComponent<HandBehaviour>();
+            lHand = right.GetComponent<HandBehaviour>();
+            Show();
         }
 
         public void Show() {
@@ -55,12 +57,12 @@ namespace _Sandbox.Scripts.Bubble
         }
 
         private void SetClosestBubbleColor() {
-            if (_lHand == null || _rHand == null) return;
+            if (lHand == null || rHand == null) return;
             var position = transform.position;
-            float lDistance = Vector3.Distance(position, _lHand.transform.position);
-            float rDistance = Vector3.Distance(position, _rHand.transform.position);
-            if (lDistance < rDistance) UpdateBubbleColor(_lHand, lDistance);
-            else UpdateBubbleColor(_rHand, rDistance);
+            float lDistance = Vector3.Distance(position, lHand.transform.position);
+            float rDistance = Vector3.Distance(position, rHand.transform.position);
+            if (lDistance < rDistance) UpdateBubbleColor(lHand, lDistance);
+            else UpdateBubbleColor(rHand, rDistance);
         }
 
         private void UpdateBubbleColor(HandBehaviour hand, float distance) {

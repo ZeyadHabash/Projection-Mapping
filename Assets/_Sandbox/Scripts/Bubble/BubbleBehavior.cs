@@ -1,4 +1,7 @@
 using System;
+using _Sandbox.Scripts.Bubble;
+using _Sandbox.Scripts.Hand;
+using TMPro;
 using UnityEngine;
 
 public enum BubbleType
@@ -9,7 +12,7 @@ public enum BubbleType
 }
 
 [RequireComponent(typeof(Collider))]
-[RequireComponent(typeof(Rigidbody))]
+// [RequireComponent(typeof(Rigidbody))]
 public class BubbleBehavior : MonoBehaviour
 {
     [SerializeField] private string word;
@@ -18,7 +21,9 @@ public class BubbleBehavior : MonoBehaviour
 
     private HandController rightHand;
     private HandController leftHand;
-
+    private TextMeshPro wordText;
+    private BubbleEffect bubbleEffect;
+    
     private bool rightTouching;
     private bool leftTouching;
 
@@ -30,13 +35,14 @@ public class BubbleBehavior : MonoBehaviour
     public string Word => word;
     public BubbleType Type => type;
 
-    public event Action<BubbleBehavior> OnCollected;
+    public static event Action<BubbleBehavior> OnCollected;
 
-    private void Awake()
-    {
-        var rb = GetComponent<Rigidbody>();
-        rb.isKinematic = true;
-        rb.useGravity = false;
+    private void Awake() {
+        wordText = GetComponentInChildren<TextMeshPro>();
+        bubbleEffect = GetComponent<BubbleEffect>();
+        // var rb = GetComponent<Rigidbody>();
+        // rb.isKinematic = true;
+        // rb.useGravity = false;
     }
 
     public void Configure(string bubbleWord, float bubbleYValue, BubbleType bubbleType)
@@ -44,12 +50,14 @@ public class BubbleBehavior : MonoBehaviour
         word = bubbleWord;
         yValue = bubbleYValue;
         type = bubbleType;
+        wordText.text = word;
     }
 
     public void Initialize(HandController right, HandController left)
     {
         rightHand = right;
         leftHand = left;
+        bubbleEffect.Init(right, left);
     }
 
     private void OnTriggerEnter(Collider other)
