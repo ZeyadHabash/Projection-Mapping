@@ -26,6 +26,7 @@ namespace _Sandbox.Scripts.Bubble
         [SerializeField] private int spawnBurstCount = 3;
 
         private BubbleDataSet bubbleData;
+        private static readonly BubbleType[] bubbleTypes = (BubbleType[])Enum.GetValues(typeof(BubbleType));
         private readonly List<BubbleBehavior> activeBubbles = new();
         private readonly HashSet<string> spawnedWords = new(StringComparer.OrdinalIgnoreCase);
         private readonly List<string> collectedWords = new();
@@ -85,7 +86,7 @@ namespace _Sandbox.Scripts.Bubble
 
         private void SpawnBubble(BubbleDataEntry data)
         {
-            var type = ParseBubbleType(data.type);
+            var type = GetRandomBubbleType();
             var prefab = GetPrefabForType(type);
 
             var bubbleObject = Instantiate(prefab, transform);
@@ -128,13 +129,12 @@ namespace _Sandbox.Scripts.Bubble
             bubbleData = JsonUtility.FromJson<BubbleDataSet>(bubbleDataFile.text);
         }
 
-        private static BubbleType ParseBubbleType(string rawType)
+        private static BubbleType GetRandomBubbleType()
         {
-            if (!string.IsNullOrWhiteSpace(rawType) &&
-                Enum.TryParse(rawType, true, out BubbleType result))
-                return result;
+            if (bubbleTypes == null || bubbleTypes.Length == 0)
+                return BubbleType.Basic;
 
-            return BubbleType.Basic;
+            return bubbleTypes[UnityEngine.Random.Range(0, bubbleTypes.Length)];
         }
 
         private GameObject GetPrefabForType(BubbleType type)
@@ -155,11 +155,13 @@ namespace _Sandbox.Scripts.Bubble
             return rgby[3];
         }
 
-        private void OnEnable() {
+        private void OnEnable()
+        {
             BubbleBehavior.OnCollected += HandleBubbleCollected;
         }
 
-        private void OnDisable() {
+        private void OnDisable()
+        {
             BubbleBehavior.OnCollected -= HandleBubbleCollected;
         }
 
@@ -174,7 +176,6 @@ namespace _Sandbox.Scripts.Bubble
         {
             public string word;
             public float[] rgby;
-            public string type;
         }
     }
 }

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace _Sandbox.Scripts.Hand
@@ -7,16 +8,18 @@ namespace _Sandbox.Scripts.Hand
     public class HandController : MonoBehaviour
     {
         private HandEffect handEffect;
-        
+
         private float x;
         private float y;
         private float closedValue;
+        private bool wasClosedLastFrame;
 
         private const float HandZ = -0.5f;
         private const float HandYOffset = 4.5f * 2;
         private const float UnitsRatio = 10f;
 
         public bool IsClosed => closedValue > 0.5f;
+        public event Action OnHandClosed;
         public Transform HandTransform => transform;
 
         private void Awake()
@@ -49,6 +52,14 @@ namespace _Sandbox.Scripts.Hand
         {
             closedValue = value;
             handEffect.SetState(closedValue);
+
+            // Trigger event on transition from open to closed
+            if (IsClosed && !wasClosedLastFrame)
+            {
+                OnHandClosed?.Invoke();
+            }
+
+            wasClosedLastFrame = IsClosed;
         }
 
         #endregion
@@ -66,6 +77,14 @@ namespace _Sandbox.Scripts.Hand
         {
             closedValue = isClosed ? 1f : 0f;
             handEffect.SetState(closedValue);
+
+            // Trigger event on transition from open to closed
+            if (IsClosed && !wasClosedLastFrame)
+            {
+                OnHandClosed?.Invoke();
+            }
+
+            wasClosedLastFrame = IsClosed;
         }
 
         #endregion
@@ -74,6 +93,6 @@ namespace _Sandbox.Scripts.Hand
         {
             transform.position = new Vector3(x, y, HandZ);
         }
-        
+
     }
 }
