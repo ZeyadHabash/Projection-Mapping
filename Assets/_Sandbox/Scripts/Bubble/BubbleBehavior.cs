@@ -1,4 +1,7 @@
 using System;
+using _Sandbox.Scripts.Bubble;
+using _Sandbox.Scripts.Hand;
+using TMPro;
 using UnityEngine;
 
 public enum BubbleType
@@ -9,7 +12,7 @@ public enum BubbleType
 }
 
 [RequireComponent(typeof(Collider))]
-[RequireComponent(typeof(Rigidbody))]
+// [RequireComponent(typeof(Rigidbody))]
 public class BubbleBehavior : MonoBehaviour
 {
     [SerializeField] private string word;
@@ -18,25 +21,25 @@ public class BubbleBehavior : MonoBehaviour
 
     private HandController rightHand;
     private HandController leftHand;
+    private TextMeshPro wordText;
+    private BubbleEffect bubbleEffect;
 
     private bool rightTouching;
     private bool leftTouching;
-
-    private bool wasRightInteracting;
-    private bool wasLeftInteracting;
-
     private int interactions;
 
     public string Word => word;
     public BubbleType Type => type;
 
-    public event Action<BubbleBehavior> OnCollected;
+    public static event Action<BubbleBehavior> OnCollected;
 
     private void Awake()
     {
-        var rb = GetComponent<Rigidbody>();
-        rb.isKinematic = true;
-        rb.useGravity = false;
+        wordText = GetComponentInChildren<TextMeshPro>();
+        bubbleEffect = GetComponent<BubbleEffect>();
+        // var rb = GetComponent<Rigidbody>();
+        // rb.isKinematic = true;
+        // rb.useGravity = false;
     }
 
     public void Configure(string bubbleWord, float bubbleYValue, BubbleType bubbleType)
@@ -44,12 +47,14 @@ public class BubbleBehavior : MonoBehaviour
         word = bubbleWord;
         yValue = bubbleYValue;
         type = bubbleType;
+        wordText.text = word;
     }
 
     public void Initialize(HandController right, HandController left)
     {
         rightHand = right;
         leftHand = left;
+        bubbleEffect.Init(right, left);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -58,10 +63,16 @@ public class BubbleBehavior : MonoBehaviour
         if (hand == null) return;
 
         if (hand == rightHand)
+        {
             rightTouching = true;
+            rightHand.OnHandClosed += OnRightHandClosed;
+        }
 
         if (hand == leftHand)
+        {
             leftTouching = true;
+            leftHand.OnHandClosed += OnLeftHandClosed;
+        }
     }
 
     private void OnTriggerExit(Collider other)
@@ -70,61 +81,65 @@ public class BubbleBehavior : MonoBehaviour
         if (hand == null) return;
 
         if (hand == rightHand)
+        {
             rightTouching = false;
+            rightHand.OnHandClosed -= OnRightHandClosed;
+        }
 
         if (hand == leftHand)
+        {
             leftTouching = false;
+            leftHand.OnHandClosed -= OnLeftHandClosed;
+        }
+    }
+
+    private void OnRightHandClosed()
+    {
+        HandleHandClose(isRight: true);
+    }
+
+    private void OnLeftHandClosed()
+    {
+        HandleHandClose(isRight: false);
+    }
+
+    private void HandleHandClose(bool isRight)
+    {
+        switch (type)
+        {
+            case BubbleType.Basic:
+                Collect();
+                break;
+
+            case BubbleType.BothHands:
+                // Need both hands touching
+                if (rightTouching && leftTouching)
+                    Collect();
+                break;
+
+            case BubbleType.DoubleTap:
+                interactions++;
+                if (interactions >= 2)
+                    Collect();
+                break;
+        }
     }
 
     private void Update()
     {
-        if (rightHand == null && leftHand == null)
-            return;
-
-        bool rightInteracting = rightTouching && rightHand != null && rightHand.IsClosed;
-        bool leftInteracting = leftTouching && leftHand != null && leftHand.IsClosed;
-
-        switch (type)
-        {
-            case BubbleType.Basic:
-                if (rightInteracting || leftInteracting)
-                {
-                    Collect();
-                }
-                break;
-
-            case BubbleType.BothHands:
-                if (rightHand != null && leftHand != null)
-                {
-                    if (rightInteracting && leftInteracting)
-                        Collect();
-                }
-                else if (rightInteracting || leftInteracting)
-                {
-                    Collect();
-                }
-                break;
-
-            case BubbleType.DoubleTap:
-
-                if (rightInteracting && !wasRightInteracting)
-                    interactions++;
-
-                if (leftInteracting && !wasLeftInteracting)
-                    interactions++;
-
-                if (interactions >= 2)
-                    Collect();
-
-                break;
-        }
-
-        wasRightInteracting = rightInteracting;
-        wasLeftInteracting = leftInteracting;
     }
 
     private void Collect()
     {
         OnCollected?.Invoke(this);
+    }
+
+    private void OnDestroy()
+    {
+        if (rightHand != null)
+            rightHand.OnHandClosed -= OnRightHandClosed;
+
+        if (leftHand != null)
+            leftHand.OnHandClosed -= OnLeftHandClosed;
     }
 }

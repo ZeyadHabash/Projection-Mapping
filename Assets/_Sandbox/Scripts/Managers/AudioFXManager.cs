@@ -9,24 +9,46 @@ namespace _Sandbox.Scripts.Managers
         private AudioSource audioSource;
         // private AudioMixer
         private float fxVolume = 0.5f;
-        
-        protected override void Awake() {
+
+        protected override void Awake()
+        {
             base.Awake();
             audioSource = GetComponent<AudioSource>();
         }
 
-        public void PlayFXClip(AudioClip audioClip, Transform spawnTransform, float volumeFactor = 1) {
+        public void PlayFXClip(AudioClip audioClip, Transform spawnTransform, float volumeFactor = 1)
+        {
             audioSource.clip = audioClip;
             audioSource.volume = volumeFactor * fxVolume;
             audioSource.Play();
         }
 
-        public void PlayRandomFXClip(AudioClip[] audioClips, float volumeFactor = 1) {
+        public void PlayRandomFXClip(AudioClip[] audioClips, float volumeFactor = 1)
+        {
             int rand = Random.Range(0, audioClips.Length);
             audioSource.clip = audioClips[rand];
             audioSource.volume = volumeFactor * fxVolume;
             audioSource.Play();
         }
-    
+
+        public void SpawnVfx(GameObject prefab, Vector3 position, float lifetime = 0f, Transform parent = null)
+        {
+            if (prefab == null)
+                return;
+
+            var vfx = Instantiate(prefab, position, Quaternion.identity, parent);
+            if (lifetime > 0f)
+                Destroy(vfx, lifetime);
+        }
+
+        public void SpawnRandomVfx(GameObject[] prefabs, Vector3 position, float lifetime = 0f, Transform parent = null)
+        {
+            if (prefabs == null || prefabs.Length == 0)
+                return;
+
+            var prefab = prefabs[Random.Range(0, prefabs.Length)];
+            SpawnVfx(prefab, position, lifetime, parent);
+        }
+
     }
 }

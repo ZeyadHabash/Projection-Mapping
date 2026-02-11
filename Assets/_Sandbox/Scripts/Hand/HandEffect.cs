@@ -1,12 +1,11 @@
-﻿using System;
-using DG.Tweening;
+﻿using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Rendering;
 using Utilities.Extensions;
 
 namespace _Sandbox.Scripts.Hand
 {
-    public class HandBehaviour : MonoBehaviour
+    public class HandEffect : MonoBehaviour
     {
         [SerializeField] [ColorUsage(true, true)] private Color _handColor = Color.cyan;
         [SerializeField] private MeshRenderer ring;
@@ -81,12 +80,6 @@ namespace _Sandbox.Scripts.Hand
             hideSequence.SetManual(gameObject);
         }
 
-
-        private void Update() {
-            // if (test) CloseEffect();
-            // else OpenEffect();
-        }
-
         public void SetState(float isClosed) {
             if (isClosed > 0) CloseEffect();
             else OpenEffect();
@@ -98,10 +91,6 @@ namespace _Sandbox.Scripts.Hand
 
         private void OpenEffect() {
             closeSequence.PlayBackwards();
-        }
-
-        public void SetPosition(float x, float y) {
-            transform.position = new Vector3(x, y, 0);
         }
         
         private void OnValidate() {

@@ -1,3 +1,4 @@
+using _Sandbox.Scripts.Hand;
 using UnityEngine;
 
 public class ClickToDestroy : MonoBehaviour

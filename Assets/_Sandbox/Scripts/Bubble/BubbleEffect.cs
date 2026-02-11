@@ -10,64 +10,78 @@ namespace _Sandbox.Scripts.Bubble
     public class BubbleEffect : MonoBehaviour
     {
 
-        [SerializeField] private HandBehaviour _rHand; 
-        [SerializeField] private HandBehaviour _lHand; 
         [SerializeField] private float _effectDistance = 1.2f;
         [SerializeField] [ColorUsage(true, true)] private Color _defaultColor = Color.gray;
+        [SerializeField] private float _showDuration = 0.5f; 
 
+        private HandEffect rHand;
+        private HandEffect lHand;
         private TextMeshPro word;
-        private VisualEffect vfx;
+        private VisualEffect parentVFX;
+        private VisualEffect childVFX;
         private Sequence showSequence;
 
-        private float showDuration = 0.4f;
+        private const float HideTimeScale = 0.4f;
+        public float HideDuration => _showDuration / HideTimeScale;
 
-        [SerializeField] private bool test = false;
-        
         private void Awake() {
-            vfx = GetComponent<VisualEffect>();
+            parentVFX = GetComponent<VisualEffect>();
+            childVFX = GetComponentInChildren<VisualEffect>();
             word = GetComponentInChildren<TextMeshPro>();
             SetupShowSequence();
         }
 
 
-        private void Update() {
+        private void Update()
+        {
             SetClosestBubbleColor();
-            if (test) Show();
-            else Hide();
         }
 
-        private void SetupShowSequence() {
+        private void SetupShowSequence()
+        {
             showSequence = DOTween.Sequence();
-            showSequence.Join(transform.DOMoveZ(0, showDuration).From(8));
-            showSequence.Join(transform.DOScale(1, showDuration).From(0f));
-            showSequence.Join(word.DOFade(1, showDuration).From(0));
+            showSequence.Join(transform.DOMoveZ(0, _showDuration).From(8));
+            showSequence.Join(transform.DOScale(1, _showDuration).From(0f));
+            showSequence.Join(word.DOFade(1, _showDuration).From(0));
             showSequence.SetManual(gameObject);
         }
 
-        public void Show() {
+        public void Init(HandController right, HandController left)
+        {
+            rHand = right.GetComponent<HandEffect>();
+            lHand = right.GetComponent<HandEffect>();
+            Show();
+        }
+
+        public void Show()
+        {
             showSequence.timeScale = 1f;
             showSequence.PlayForward();
         }
 
-        public void Hide() {
-            showSequence.timeScale = 0.4f;
+        public void Hide()
+        {
+            showSequence.timeScale = HideTimeScale;
             showSequence.PlayBackwards();
         }
 
-        private void SetClosestBubbleColor() {
-            if (_lHand == null || _rHand == null) return;
+        private void SetClosestBubbleColor()
+        {
+            if (lHand == null || rHand == null) return;
             var position = transform.position;
-            float lDistance = Vector3.Distance(position, _lHand.transform.position);
-            float rDistance = Vector3.Distance(position, _rHand.transform.position);
-            if (lDistance < rDistance) UpdateBubbleColor(_lHand, lDistance);
-            else UpdateBubbleColor(_rHand, rDistance);
+            float lDistance = Vector3.Distance(position, lHand.transform.position);
+            float rDistance = Vector3.Distance(position, rHand.transform.position);
+            if (lDistance < rDistance) UpdateBubbleColor(lHand, lDistance);
+            else UpdateBubbleColor(rHand, rDistance);
         }
 
-        private void UpdateBubbleColor(HandBehaviour hand, float distance) {
+        private void UpdateBubbleColor(HandEffect hand, float distance)
+        {
 
             float t = 1.0f - Mathf.Clamp01(distance / (_effectDistance));
             Color finalColor = Color.Lerp(_defaultColor, hand.HandColor, t);
-            vfx.SetVector4("color", finalColor);
+            parentVFX.SetVector4("color", finalColor);
+            if (childVFX != null) childVFX.SetVector4("color", finalColor); //TODO: I hate this... when double.. this should be .. I hate this..
         }
     }
 }
