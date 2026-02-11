@@ -859,9 +859,20 @@ MonoBehaviour:
   playAreaMax: {x: 10, y: 19.5}
   bubbleRadius: 0.5
   wordHeightOffset: 0.65
+  minSpawnSeparation: 1.1
+  spawnPositionAttempts: 12
+  bubbleLifetime: 10
   maxBubbles: 30
   spawnInterval: 0.8
+  minSpawnInterval: 0.35
+  spawnRateIncreasePerSecond: 0.02
   spawnBurstCount: 1
+  bubbleTypeWeights:
+  - type: 0
+    baseWeight: 0
+    weightIncreasePerSecond: 0
+  spawnAudioClips: []
+  collectAudioClips: []
 --- !u!4 &1141947307
 Transform:
   m_ObjectHideFlags: 0
@@ -977,17 +988,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 64e1a557495cdab46a25e3db238e36ff, type: 3}
---- !u!114 &1589504383 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6991844038955400146, guid: 64e1a557495cdab46a25e3db238e36ff, type: 3}
-  m_PrefabInstance: {fileID: 1589504381}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff71ed61a1d84a7a93095ed781e8fe66, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::_Sandbox.Scripts.Hand.HandBehaviour
 --- !u!1 &1709815383
 GameObject:
   m_ObjectHideFlags: 0
@@ -1047,7 +1047,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1709815383}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9e038867b5335ff4bb352ceb1025ab79, type: 3}
   m_Name: 
@@ -1117,17 +1117,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b03322f5b9fd394f9c6234008313c98, type: 3}
---- !u!114 &1765232015 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 642841169045071322, guid: 6b03322f5b9fd394f9c6234008313c98, type: 3}
-  m_PrefabInstance: {fileID: 1765232014}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff71ed61a1d84a7a93095ed781e8fe66, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::_Sandbox.Scripts.Hand.HandBehaviour
 --- !u!114 &1765232017 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7307446180178768201, guid: 6b03322f5b9fd394f9c6234008313c98, type: 3}
