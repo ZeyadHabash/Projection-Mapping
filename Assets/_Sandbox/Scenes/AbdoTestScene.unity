@@ -709,7 +709,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!135 &496590843
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -932,6 +932,18 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 817685262, guid: b21f208237dfa604184a809772254745, type: 3}
+      propertyPath: _cameraModule
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1014210311, guid: b21f208237dfa604184a809772254745, type: 3}
+      propertyPath: manualTorque
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 1014210311, guid: b21f208237dfa604184a809772254745, type: 3}
+      propertyPath: uprightTorque
+      value: 500
+      objectReference: {fileID: 0}
     - target: {fileID: 1014210315, guid: b21f208237dfa604184a809772254745, type: 3}
       propertyPath: dontBlockCamera.m_Bits
       value: 0
@@ -958,11 +970,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8894856259471134341, guid: b21f208237dfa604184a809772254745, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.73
+      value: 2.92
       objectReference: {fileID: 0}
     - target: {fileID: 8894856259471134341, guid: b21f208237dfa604184a809772254745, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.24241854
+      value: 2.27
       objectReference: {fileID: 0}
     - target: {fileID: 8894856259471134341, guid: b21f208237dfa604184a809772254745, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1000,7 +1012,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: ActiveRagdoll
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1014210315, guid: b21f208237dfa604184a809772254745, type: 3}
+    - {fileID: 1014210310, guid: b21f208237dfa604184a809772254745, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -1236,8 +1250,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a137bc1a9194092ae42dbb3bb536516, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Sandbox.Scripts.Managers.TestRagdollOSC
-  _rHand: {fileID: 1055469784}
-  _lHand: {fileID: 1686912282}
+  _rHand: {fileID: 1686912282}
+  _lHand: {fileID: 1055469784}
   _hip: {fileID: 957541312}
   _head: {fileID: 502798185}
 --- !u!1 &832575517
@@ -2334,7 +2348,7 @@ Transform:
   m_GameObject: {fileID: 1699548948}
   serializedVersion: 2
   m_LocalRotation: {x: 0.70710576, y: -0, z: -0, w: 0.70710784}
-  m_LocalPosition: {x: 0, y: 12, z: -0.1}
+  m_LocalPosition: {x: 0, y: 12, z: 6.37}
   m_LocalScale: {x: 19.75752, y: 0.82323, z: 14.81814}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2624,7 +2638,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!135 &1996706980
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2824,7 +2838,7 @@ Transform:
   m_GameObject: {fileID: 2047148171}
   serializedVersion: 2
   m_LocalRotation: {x: 0.70710576, y: -0, z: -0, w: 0.70710784}
-  m_LocalPosition: {x: 0, y: 12, z: 0}
+  m_LocalPosition: {x: 0, y: 12, z: 6.47}
   m_LocalScale: {x: 24, y: 1, z: 18}
   m_ConstrainProportionsScale: 0
   m_Children: []

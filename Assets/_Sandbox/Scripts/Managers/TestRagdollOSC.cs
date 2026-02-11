@@ -23,7 +23,7 @@ namespace _Sandbox.Scripts.Managers
         private float rightClosedValue;
         private float leftClosedValue;
 
-        private float handYOffset = 4.5f * 2;
+        private float yOffset = 4.5f * 2;
         private static float UNITS_RATIO = 10;
 
         public bool RightHandClosed => rightClosedValue > 0.5f;
@@ -36,7 +36,7 @@ namespace _Sandbox.Scripts.Managers
         private void Update() {
             _rHand.position = new Vector3(rx, ry, 0);
             _lHand.position = new Vector3(lx, ly, 0);
-            _hip.position = new Vector3(hx, hy, 0);
+            // _hip.position = new Vector3(hx, hy, 0);
         }
 
         void Start() {
@@ -72,7 +72,7 @@ namespace _Sandbox.Scripts.Managers
         }
 
         private void MoveHipY(OSCMessage message) {
-            hy = message.Values[0].FloatValue * UNITS_RATIO;
+            hy = message.Values[0].FloatValue * UNITS_RATIO + yOffset;
         }
         
         private void MoveHipX(OSCMessage message) {
@@ -92,7 +92,7 @@ namespace _Sandbox.Scripts.Managers
         }
 
         void MoveHandRy(OSCMessage message) {
-            ry = message.Values[0].FloatValue * UNITS_RATIO + handYOffset;
+            ry = message.Values[0].FloatValue * UNITS_RATIO + yOffset;
         }
 
         void MoveHandLx(OSCMessage message) {
@@ -100,7 +100,7 @@ namespace _Sandbox.Scripts.Managers
         }
 
         void MoveHandLy(OSCMessage message) {
-            ly = message.Values[0].FloatValue * UNITS_RATIO + handYOffset;
+            ly = message.Values[0].FloatValue * UNITS_RATIO + yOffset;
         }
     }
 }
