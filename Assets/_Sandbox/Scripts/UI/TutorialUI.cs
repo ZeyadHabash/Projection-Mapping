@@ -10,7 +10,7 @@ namespace _Sandbox.Scripts.UI
         [SerializeField] private GameObject leftHandClosed;
         [SerializeField] private GameObject rightHandOpen;
         [SerializeField] private GameObject rightHandClosed;
-        
+        [SerializeField] private float interval = 1.6f;
         
         private void Start()
         {
@@ -21,9 +21,9 @@ namespace _Sandbox.Scripts.UI
         {
             Sequence handSequence = DOTween.Sequence();
             handSequence.AppendCallback(() => SetHandState(isOpen: true));
-            handSequence.AppendInterval(2f);
+            handSequence.AppendInterval(interval);
             handSequence.AppendCallback(() => SetHandState(isOpen: false));
-            handSequence.AppendInterval(2f);
+            handSequence.AppendInterval(interval);
             handSequence.SetLoops(-1);
         }
         

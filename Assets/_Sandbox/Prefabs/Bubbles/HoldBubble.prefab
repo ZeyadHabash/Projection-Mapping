@@ -27,8 +27,8 @@ Transform:
   m_GameObject: {fileID: 601713035385542708}
   serializedVersion: 2
   m_LocalRotation: {x: -0.70710576, y: -0, z: -0, w: 0.7071079}
-  m_LocalPosition: {x: -0.28, y: 0, z: -1.57}
-  m_LocalScale: {x: 0.43441975, y: 0.009910853, z: 0.43441975}
+  m_LocalPosition: {x: 0, y: 0, z: -0.25}
+  m_LocalScale: {x: 0, y: 0.03, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 935858012513732538}
@@ -66,7 +66,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0fad59e56a7570a49a8d2697f0f03c43, type: 2}
+  - {fileID: 2100000, guid: 7af6d355dc1ba5c4ba80d9c503f9add5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -101,7 +101,6 @@ GameObject:
   - component: {fileID: 3152649517695648239}
   - component: {fileID: 789786179365839839}
   - component: {fileID: 6144434170473859116}
-  - component: {fileID: 7574795971059012074}
   m_Layer: 0
   m_Name: Name
   m_TagString: Untagged
@@ -153,7 +152,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  - {fileID: -2962157270256717430, guid: e04fd8a124e1d7b4ba4e6a1733787096, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -197,10 +196,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Random
+  m_text: Right Hand
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: e04fd8a124e1d7b4ba4e6a1733787096, type: 2}
+  m_sharedMaterial: {fileID: -2962157270256717430, guid: e04fd8a124e1d7b4ba4e6a1733787096, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -224,7 +223,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 5.25
+  m_fontSize: 7
   m_fontSizeBase: 9
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -272,23 +271,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_renderer: {fileID: 789786179365839839}
   m_maskType: 0
---- !u!320 &7574795971059012074
-PlayableDirector:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 918071262241357718}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: 693f9824e1ff91241b2bf7e815c6b0da, type: 2}
-  m_InitialState: 1
-  m_WrapMode: 2
-  m_DirectorUpdateMode: 1
-  m_InitialTime: 0
-  m_SceneBindings: []
-  m_ExposedReferences:
-    m_References: []
 --- !u!1 &3997041098584715977
 GameObject:
   m_ObjectHideFlags: 0
@@ -302,7 +284,7 @@ GameObject:
   - component: {fileID: 8775058156694746163}
   - component: {fileID: 1374572612642003319}
   - component: {fileID: 4099138727610077605}
-  - component: {fileID: 3356450860490009225}
+  - component: {fileID: 4542682310044986841}
   m_Layer: 0
   m_Name: HoldBubble
   m_TagString: Untagged
@@ -445,6 +427,9 @@ MonoBehaviour:
   _effectDistance: 3
   _defaultColor: {r: 2.1213202, g: 2.1213202, b: 2.1213202, a: 1}
   _showDuration: 0.5
+  _enableHoverEffect: 1
+  _showOnSpawn: 1
+  collectAudioClips: []
 --- !u!135 &4099138727610077605
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -466,7 +451,7 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 1.55
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &3356450860490009225
+--- !u!114 &4542682310044986841
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -475,9 +460,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 3997041098584715977}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d3749a167eddb342aa04eace6feae89, type: 3}
+  m_Script: {fileID: 11500000, guid: 568b1a811d42472f85586656db6d6713, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BubbleBehavior
-  word: 
-  yValue: 0
-  type: 0
+  m_EditorClassIdentifier: Assembly-CSharp::_Sandbox.Scripts.Bubble.BubbleHoldEffect
+  overlay: {fileID: 601713035385542708}
+  maxTime: 4
+  phaseManager: {fileID: 0}

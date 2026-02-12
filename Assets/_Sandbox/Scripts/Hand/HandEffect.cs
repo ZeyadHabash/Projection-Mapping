@@ -1,4 +1,5 @@
-﻿using DG.Tweening;
+﻿using System;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Rendering;
 using Utilities.Extensions;
@@ -26,8 +27,6 @@ namespace _Sandbox.Scripts.Hand
         [SerializeField] private float _lightIntensity = 0.3f; 
         [SerializeField] private float _duration = 0.2f; 
         
-        [SerializeField] private bool test = false;
-
         public Color HandColor => _handColor;
         
         private void Awake() {
@@ -38,7 +37,11 @@ namespace _Sandbox.Scripts.Hand
             SetupCloseSequence();
             SetupHideSequence();
         }
-        
+
+        private void Start() {
+            
+        }
+
         private void SetupCloseSequence() {
             closeSequence = DOTween.Sequence();
 
@@ -78,6 +81,14 @@ namespace _Sandbox.Scripts.Hand
             hideSequence.Join(sphereMat.DOFade(0, _duration));
             
             hideSequence.SetManual(gameObject);
+        }
+
+        public void Show() {
+            hideSequence.PlayBackwards();
+        }
+
+        public void Hide() {
+            hideSequence.PlayForward();
         }
 
         public void SetState(float isClosed) {

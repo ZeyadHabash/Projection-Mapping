@@ -1,19 +1,17 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using _Sandbox.Scripts.Hand;
+using _Sandbox.Scripts.Enums;
 using _Sandbox.Scripts.Managers;
+using _Sandbox.Scripts.Structs;
 using UnityEngine;
 using UnityEngine.Serialization;
+using Random = UnityEngine.Random;
 
 namespace _Sandbox.Scripts.Bubble
 {
     public class BubbleSpawner : MonoBehaviour
     {
-        [SerializeField] private HandController rightHand;
-        [SerializeField] private HandController leftHand;
-
-        [SerializeField] private TextAsset bubbleDataFile;
         [SerializeField] private GameObject basicBubblePrefab;
         [SerializeField] private GameObject bothHandsBubblePrefab;
         [SerializeField] private GameObject doubleTapBubblePrefab;
@@ -22,7 +20,6 @@ namespace _Sandbox.Scripts.Bubble
         [SerializeField] private Vector2 playAreaMax = new Vector2(5f, 10f);
 
         [SerializeField] private float bubbleRadius = 0.5f;
-        [SerializeField] private float wordHeightOffset = 0.65f;
         [SerializeField] private float minSpawnSeparation = 1.1f;
         [SerializeField] private int spawnPositionAttempts = 12;
         [SerializeField] private float bubbleLifetime = 10f;
@@ -39,30 +36,20 @@ namespace _Sandbox.Scripts.Bubble
 
         [Header("Audio")]
         [SerializeField] private AudioClip[] spawnAudioClips;
-        [SerializeField] private AudioClip[] collectAudioClips;
 
-        private BubbleDataSet bubbleData;
         private static readonly BubbleType[] bubbleTypes = (BubbleType[])Enum.GetValues(typeof(BubbleType));
         private readonly List<BubbleBehavior> activeBubbles = new();
         private readonly HashSet<string> spawnedWords = new(StringComparer.OrdinalIgnoreCase);
-        private readonly List<string> collectedWords = new();
         private readonly Dictionary<BubbleBehavior, Coroutine> despawnRoutines = new();
 
         private float spawnTimer;
         private float elapsedTime;
         private float currentSpawnInterval;
-
-        public IReadOnlyList<string> CollectedWords => collectedWords;
-
-        private void Awake()
-        {
-            LoadBubbleData();
-        }
-
+        
         private void Update()
         {
-            if (bubbleData == null || bubbleData.bubbles == null || bubbleData.bubbles.Length == 0)
-                return;
+            // if (bubbleData == null || bubbleData.bubbles == null || bubbleData.bubbles.Length == 0)
+            //     return;
 
             elapsedTime += Time.deltaTime;
             currentSpawnInterval = Mathf.Max(
@@ -85,30 +72,13 @@ namespace _Sandbox.Scripts.Bubble
 
             for (int i = 0; i < spawnBurstCount && activeBubbles.Count < maxBubbles; i++)
             {
-                var data = GetUnusedBubbleEntry();
-                if (data == null)
-                    break;
-
-                SpawnBubble(data);
+                var data = GetUnusedWordEntry();
+                if (data != null) SpawnBubble(data);
             }
         }
 
-        private BubbleDataEntry GetUnusedBubbleEntry()
-        {
-            for (int i = 0; i < bubbleData.bubbles.Length; i++)
-            {
-                var candidate = bubbleData.bubbles[UnityEngine.Random.Range(0, bubbleData.bubbles.Length)];
-                if (candidate == null || string.IsNullOrWhiteSpace(candidate.word))
-                    continue;
 
-                if (!spawnedWords.Contains(candidate.word))
-                    return candidate;
-            }
-
-            return null;
-        }
-
-        private void SpawnBubble(BubbleDataEntry data)
+        private void SpawnBubble(WordDataEntry data)
         {
             var type = GetWeightedBubbleType();
             var prefab = GetPrefabForType(type);
@@ -121,15 +91,12 @@ namespace _Sandbox.Scripts.Bubble
 
             bubbleObject.transform.position = spawnPosition;
 
-            // ApplyBubbleColor(bubbleObject, GetColorForType(type));
-            // CreateLabel(bubbleObject.transform, data.word, GetColorForType(type));
-
             var bubble = bubbleObject.GetComponent<BubbleBehavior>();
             if (bubble == null)
                 bubble = bubbleObject.AddComponent<BubbleBehavior>();
 
             bubble.Configure(data.word, GetBubbleYValue(data.rgby), type);
-            bubble.Initialize(rightHand, leftHand);
+            bubble.EnableAndAppear();
 
             activeBubbles.Add(bubble);
             spawnedWords.Add(data.word);
@@ -138,16 +105,40 @@ namespace _Sandbox.Scripts.Bubble
 
             PlayRandomAudio(spawnAudioClips);
         }
+        
+        private void PlayRandomAudio(AudioClip[] clips)
+        {
+            if (clips == null || clips.Length == 0)
+                return;
+
+            if (AudioFXManager.Instance == null)
+                return;
+
+            AudioFXManager.Instance.PlayRandomFXClip(clips);
+        }
+        
+        private WordDataEntry GetUnusedWordEntry() {
+            var wordData = WordManager.Instance.WordData;
+            for (int i = 0; i < wordData.words.Length; i++)
+            {
+                var candidate = wordData.words[Random.Range(0, wordData.words.Length)];
+                if (string.IsNullOrWhiteSpace(candidate.word))
+                    continue;
+
+                if (!spawnedWords.Contains(candidate.word))
+                    return candidate;
+            }
+
+            return null;
+        }
 
         private void HandleBubbleCollected(BubbleBehavior bubble)
         {
             StopDespawnRoutine(bubble);
             activeBubbles.Remove(bubble);
 
-            if (!string.IsNullOrWhiteSpace(bubble.Word))
-                collectedWords.Add(bubble.Word);
+            if (!string.IsNullOrWhiteSpace(bubble.Word)) WordManager.Instance.CollectWord(bubble.Word);
 
-            PlayRandomAudio(collectAudioClips);
             // StartCoroutine(DestroyAfterHide(bubble));
             Destroy(bubble.gameObject);
         }
@@ -194,24 +185,6 @@ namespace _Sandbox.Scripts.Bubble
             return true;
         }
 
-        private void PlayRandomAudio(AudioClip[] clips)
-        {
-            if (clips == null || clips.Length == 0)
-                return;
-
-            if (AudioFXManager.Instance == null)
-                return;
-
-            AudioFXManager.Instance.PlayRandomFXClip(clips);
-        }
-
-        private void PlayRandomVfx(GameObject[] prefabs, Vector3 position, float lifetime)
-        {
-            if (AudioFXManager.Instance == null)
-                return;
-
-            AudioFXManager.Instance.SpawnRandomVfx(prefabs, position, lifetime, transform);
-        }
 
         private IEnumerator DestroyAfterHide(BubbleBehavior bubble)
         {
@@ -264,14 +237,6 @@ namespace _Sandbox.Scripts.Bubble
             }
 
             HandleBubbleExpired(bubble);
-        }
-
-        private void LoadBubbleData()
-        {
-            if (bubbleDataFile == null)
-                return;
-
-            bubbleData = JsonUtility.FromJson<BubbleDataSet>(bubbleDataFile.text);
         }
 
         private BubbleType GetWeightedBubbleType()
@@ -345,19 +310,6 @@ namespace _Sandbox.Scripts.Bubble
         private void OnDisable()
         {
             BubbleBehavior.OnCollected -= HandleBubbleCollected;
-        }
-
-        [Serializable]
-        private class BubbleDataSet
-        {
-            public BubbleDataEntry[] bubbles;
-        }
-
-        [Serializable]
-        private class BubbleDataEntry
-        {
-            public string word;
-            public float[] rgby;
         }
 
         [Serializable]
