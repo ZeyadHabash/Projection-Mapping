@@ -11,6 +11,8 @@ namespace _Sandbox.Scripts.Managers
         private WordDataSet wordData;
         private List<string> wordPool = new List<string>();
         private List<string> collectedWords = new List<string>();
+       
+
 
         public IReadOnlyList<string> CollectedWords => collectedWords;
         public WordDataSet WordData => wordData;
@@ -22,6 +24,8 @@ namespace _Sandbox.Scripts.Managers
 
         private void LoadWordsData() {
             if (wordsDataFile == null) return;
+
+
             wordData = JsonUtility.FromJson<WordDataSet>(wordsDataFile.text);
         }
 
@@ -38,13 +42,89 @@ namespace _Sandbox.Scripts.Managers
             collectedWords.RemoveAt(randomIndex);
         }
 
+     
 
-        // Word Pool
-        // Collected Word
+        public enum WordColor
+        {
+            Red,
+            Green,
+            Blue,
+            Yellow,
+            White
+        }
 
-        // Read Words
-        // Pop Word
-        // Collect Word
-        // Get Random Word
+        public WordColor GetDominantCollectedColor()
+        {
+            if (collectedWords.Count == 0 || wordData == null || wordData.words == null)
+                return WordColor.White;
+
+            float totalR = 0f;
+            float totalG = 0f;
+            float totalB = 0f;
+            float totalY = 0f;
+
+            
+            foreach (string collectedWord in collectedWords)
+            {
+                foreach (WordDataEntry entry in wordData.words)
+                {
+                    if (entry.word == collectedWord)
+                    {
+                        if (entry.rgby != null && entry.rgby.Length >= 4)
+                        {
+                            totalR += entry.rgby[0];
+                            totalG += entry.rgby[1];
+                            totalB += entry.rgby[2];
+                            totalY += entry.rgby[3];
+                        }
+                        break; 
+                    }
+                }
+            }
+
+            
+            if (Mathf.Approximately(totalR, totalG) &&
+                Mathf.Approximately(totalR, totalB) &&
+                Mathf.Approximately(totalR, totalY))
+            {
+                return WordColor.White;
+            }
+
+            
+            WordColor dominant = WordColor.Red;
+            float max = totalR;
+
+            if (totalG > max)
+            {
+                max = totalG;
+                dominant = WordColor.Green;
+            }
+            if (totalB > max)
+            {
+                max = totalB;
+                dominant = WordColor.Blue;
+            }
+            if (totalY > max)
+            {
+                dominant = WordColor.Yellow;
+            }
+
+            return dominant;
+        }
+
+
+
+
+
     }
+
+
+
+    // Word Pool
+    // Collected Word
+
+    // Read Words
+    // Pop Word
+    // Collect Word
+    // Get Random Word
 }
