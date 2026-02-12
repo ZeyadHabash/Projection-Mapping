@@ -1,54 +1,94 @@
 using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 
 public class EnemySpawner : MonoBehaviour
 {
-    public GameObject cubePrefab;
-    public GameObject capsulePrefab;
-    
+    [Header("Prefabs")]
+    [SerializeField] private GameObject[] prefabsToSpawn; 
 
-    public float spawnRate = 1.5f;
+    [Header("Spawn Timing")]
+    [SerializeField] private float startSpawnDelay = 3f;
+    [SerializeField] private float minSpawnDelay = 0.8f;
+    [SerializeField] private float accelerationRate = 0.05f;
 
-    //Bounds for spawning 
-    public Vector2 outerMin;//Gray area 
-    public Vector2 outerMax;
+    [Header("Spawn Area")]
+    [SerializeField] private Vector2 outerMin;
+    [SerializeField] private Vector2 outerMax;
+    [SerializeField] private Vector2 innerMin;
+    [SerializeField] private Vector2 innerMax;
 
-    public Vector2 innerMin; //Yellow area
-    public Vector2 innerMax;
+    [Header("Grid Settings")]
+    [SerializeField] private int gridColumns = 5;
+    [SerializeField] private int gridRows = 5;
+
+    private float currentSpawnDelay;
+    private List<Vector3> spawnPositions = new List<Vector3>();
+    private int spawnIndex = 0;
+    private int prefabIndex = 0;
 
     void Start()
     {
-        InvokeRepeating(nameof(SpawnEnemy), 1f, spawnRate);
+        currentSpawnDelay = startSpawnDelay;
+        GenerateGridPositions();
+        StartCoroutine(SpawnLoop());
+    }
+
+    
+    void GenerateGridPositions()
+    {
+        spawnPositions.Clear();
+
+        float xStep = (outerMax.x - outerMin.x) / (gridColumns - 1);
+        float yStep = (outerMax.y - outerMin.y) / (gridRows - 1);
+
+        for (int i = 0; i < gridColumns; i++)
+        {
+            for (int j = 0; j < gridRows; j++)
+            {
+                float x = outerMin.x + i * xStep;
+                float y = outerMin.y + j * yStep;
+
+                
+                if (x > innerMin.x && x < innerMax.x && y > innerMin.y && y < innerMax.y)
+                    continue;
+
+                spawnPositions.Add(new Vector3(x, y, -0.5f));
+            }
+        }
+    }
+
+    IEnumerator SpawnLoop()
+    {
+        yield return new WaitForSeconds(1f);
+
+        while (true)
+        {
+            SpawnEnemy();
+
+            yield return new WaitForSeconds(currentSpawnDelay);
+
+            if (currentSpawnDelay > minSpawnDelay)
+            {
+                currentSpawnDelay -= accelerationRate;
+                if (currentSpawnDelay < minSpawnDelay)
+                    currentSpawnDelay = minSpawnDelay;
+            }
+        }
     }
 
     void SpawnEnemy()
     {
-        Vector3 pos = GetRandomGrayPosition();
+        if (spawnPositions.Count == 0) return;
 
-        int r = Random.Range(0,2);
-        GameObject enemy;
+        
+        Vector3 pos = spawnPositions[spawnIndex];
+        spawnIndex = (spawnIndex + 1) % spawnPositions.Count;
 
-        if (r == 0)
-            enemy = Instantiate(cubePrefab, pos, Quaternion.identity);
-        else if (r == 1)
-            enemy = Instantiate(capsulePrefab, pos, Quaternion.identity);
        
+        GameObject prefab = prefabsToSpawn[prefabIndex];
+        prefabIndex = (prefabIndex + 1) % prefabsToSpawn.Length;
+
+        Instantiate(prefab, pos, Quaternion.identity);
     }
-
-    Vector3 GetRandomGrayPosition()
-    {
-        Vector3 pos;
-
-        do
-        {
-            float x = Random.Range(outerMin.x, outerMax.x);
-            float y = Random.Range(outerMin.y, outerMax.y);
-
-            pos = new Vector3(x, y, -0.5f);
-        }
-        while (pos.x > innerMin.x && pos.x < innerMax.x &&
-               pos.y > innerMin.y && pos.y < innerMax.y);
-
-        return pos;
-    }
-
 }
