@@ -2621,7 +2621,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 227564712668593049, guid: 7627b6049a2bf09458dbbbeb47c96ce1, type: 3}
       propertyPath: enableKeyboardMovement
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 252240531607398434, guid: 7627b6049a2bf09458dbbbeb47c96ce1, type: 3}
       propertyPath: m_LocalPosition.x

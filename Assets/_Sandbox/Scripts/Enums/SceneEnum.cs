@@ -2,9 +2,10 @@
 {
     public enum SceneEnum
     {
-        CalibrationScene = 0,
-        CollectionScene = 1,
-        ProtectionScene = 2,
-        RevealScene = 3,
+        CutScene =0,
+        CalibrationScene = 1,
+        CollectionScene = 2,
+        ProtectionScene = 3,
+        RevealScene = 4,
     }
 }
