@@ -235,7 +235,6 @@ Transform:
   m_Children:
   - {fileID: 3152649517695648239}
   - {fileID: 6123513366324511529}
-  - {fileID: 9003131673268564278}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!2083052967 &1811995454968101011
@@ -353,6 +352,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7b0ebe77e2326749b3eb5de741557f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Sandbox.Scripts.Bubble.BubbleEffect
+  _bubbleType: 1
   _effectDistance: 3
   _defaultColor: {r: 2.1213202, g: 2.1213202, b: 2.1213202, a: 1}
   _showDuration: 0.5
@@ -396,37 +396,6 @@ MonoBehaviour:
   word: 
   yValue: 0
   type: 1
---- !u!1 &6382816296076995870
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 9003131673268564278}
-  m_Layer: 0
-  m_Name: FirstBubble
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &9003131673268564278
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6382816296076995870}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 935858012513732538}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7526419853896055249
 GameObject:
   m_ObjectHideFlags: 0

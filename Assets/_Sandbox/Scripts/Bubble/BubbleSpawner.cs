@@ -147,7 +147,9 @@ namespace _Sandbox.Scripts.Bubble
         {
             StopDespawnRoutine(bubble);
             activeBubbles.Remove(bubble);
-            StartCoroutine(DestroyAfterHide(bubble));
+            bubble.CollectAndHide();
+            Debug.Log("collect & hide");
+            // StartCoroutine(DestroyAfterHide(bubble));
         }
 
         private bool TryGetSpawnPosition(out Vector3 position)

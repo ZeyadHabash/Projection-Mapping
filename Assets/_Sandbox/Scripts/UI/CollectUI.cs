@@ -16,7 +16,7 @@ namespace _Sandbox.Scripts.UI
 
         private void HandleCollect(BubbleBehavior obj) {
             curScore += 1; 
-            score.text = $"Collect\n{curScore}";
+            score.text = $"COLLECT\n{curScore}";
         }
         
         private void OnEnable() {

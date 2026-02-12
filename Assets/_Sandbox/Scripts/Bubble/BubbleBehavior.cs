@@ -126,6 +126,7 @@ namespace _Sandbox.Scripts.Bubble
 
                 case BubbleType.DoubleTap:
                     interactions++;
+                    bubbleEffect.RemoveChild();
                     if (interactions >= 2)
                         Collect();
                     break;

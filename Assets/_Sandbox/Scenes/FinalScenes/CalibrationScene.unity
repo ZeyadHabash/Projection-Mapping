@@ -1503,17 +1503,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 85838959}
     m_Modifications:
+    - target: {fileID: 601713035385542708, guid: f4b1dcbe0f9abb94b8b601f226426cbc, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 789786179365839839, guid: f4b1dcbe0f9abb94b8b601f226426cbc, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: -2962157270256717430, guid: e04fd8a124e1d7b4ba4e6a1733787096, type: 2}
     - target: {fileID: 935858012513732538, guid: f4b1dcbe0f9abb94b8b601f226426cbc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -14
+      value: -12
       objectReference: {fileID: 0}
     - target: {fileID: 935858012513732538, guid: f4b1dcbe0f9abb94b8b601f226426cbc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -1.7
       objectReference: {fileID: 0}
     - target: {fileID: 935858012513732538, guid: f4b1dcbe0f9abb94b8b601f226426cbc, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1548,12 +1552,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1374572612642003319, guid: f4b1dcbe0f9abb94b8b601f226426cbc, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1374572612642003319, guid: f4b1dcbe0f9abb94b8b601f226426cbc, type: 3}
       propertyPath: _showOnSpawn
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3997041098584715977, guid: f4b1dcbe0f9abb94b8b601f226426cbc, type: 3}
       propertyPath: m_Name
       value: HoldLeftBubble
+      objectReference: {fileID: 0}
+    - target: {fileID: 3997041098584715977, guid: f4b1dcbe0f9abb94b8b601f226426cbc, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4542682310044986841, guid: f4b1dcbe0f9abb94b8b601f226426cbc, type: 3}
       propertyPath: phaseManager
@@ -1586,6 +1598,10 @@ PrefabInstance:
     - target: {fileID: 7019554427226275220, guid: f4b1dcbe0f9abb94b8b601f226426cbc, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8775058156694746163, guid: f4b1dcbe0f9abb94b8b601f226426cbc, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2020,7 +2036,6 @@ MonoBehaviour:
   grid: {fileID: 587381279763636916}
   sceneText: {fileID: 236151471}
   transitionDuraiton: 2
-  maxVolume: 0.8
   handOpenedRenderer: {fileID: 2033184850}
   _gridColor: {r: 2.0431895, g: 7.127345, b: 10.938292, a: 1}
 --- !u!1001 &1967149122
@@ -2311,11 +2326,11 @@ PrefabInstance:
       objectReference: {fileID: -2962157270256717430, guid: e04fd8a124e1d7b4ba4e6a1733787096, type: 2}
     - target: {fileID: 935858012513732538, guid: f4b1dcbe0f9abb94b8b601f226426cbc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 935858012513732538, guid: f4b1dcbe0f9abb94b8b601f226426cbc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -1.6999998
       objectReference: {fileID: 0}
     - target: {fileID: 935858012513732538, guid: f4b1dcbe0f9abb94b8b601f226426cbc, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2353,6 +2368,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HoldRightBubble
       objectReference: {fileID: 0}
+    - target: {fileID: 3997041098584715977, guid: f4b1dcbe0f9abb94b8b601f226426cbc, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4542682310044986841, guid: f4b1dcbe0f9abb94b8b601f226426cbc, type: 3}
       propertyPath: phaseManager
       value: 
@@ -2360,6 +2379,10 @@ PrefabInstance:
     - target: {fileID: 7019554427226275220, guid: f4b1dcbe0f9abb94b8b601f226426cbc, type: 3}
       propertyPath: m_LocalScale.x
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8775058156694746163, guid: f4b1dcbe0f9abb94b8b601f226426cbc, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2660,5 +2683,5 @@ SceneRoots:
   - {fileID: 825097937}
   - {fileID: 587381279763636915}
   - {fileID: 116721568}
-  - {fileID: 6268941794726772361}
   - {fileID: 1313964257}
+  - {fileID: 6268941794726772361}

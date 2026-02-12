@@ -1,3 +1,5 @@
+using System;
+using _Sandbox.Scripts.Enums;
 using _Sandbox.Scripts.Hand;
 using _Sandbox.Scripts.Managers;
 using DG.Tweening;
@@ -10,7 +12,7 @@ namespace _Sandbox.Scripts.Bubble
 {
     public class BubbleEffect : MonoBehaviour
     {
-
+        [SerializeField] private BubbleType _bubbleType;
         [SerializeField] private float _effectDistance = 1.2f;
         [SerializeField] [ColorUsage(true, true)] private Color _defaultColor = Color.gray;
         [SerializeField] private float _showDuration = 0.5f;
@@ -30,9 +32,17 @@ namespace _Sandbox.Scripts.Bubble
         private const float HideTimeScale = 0.4f;
         public float HideDuration => _showDuration / HideTimeScale;
 
+        private bool makeParentActive = false;
+
         private void Awake() {
             parentVfx = GetComponent<VisualEffect>();
-            childVFX = GetComponentInChildren<VisualEffect>();
+            VisualEffect[] allVfx = GetComponentsInChildren<VisualEffect>(); //TODO: I hate this
+            foreach (var vfx in allVfx) {
+                if (vfx != parentVfx) {
+                    childVFX = vfx;
+                    break; 
+                }
+            }
             word = GetComponentInChildren<TextMeshPro>();
             SetupShowSequence();
         }
@@ -111,6 +121,18 @@ namespace _Sandbox.Scripts.Bubble
             AudioFXManager.Instance.PlayRandomFXClip(clips);
         }
 
+        public void RemoveChild() {
+            if (childVFX == null) return;
+            childVFX.enabled = false;
+            // Vector4 currentHSV = childVFX.GetVector4("color");
+            // Vector4 targetHSV = new Vector4(currentHSV.x, currentHSV.y, 0f, currentHSV.w);
+            // DOTween.To(() => currentHSV, x => {
+            //     currentHSV = x;
+            //     childVFX.SetVector4("color", currentHSV);
+            // }, targetHSV, 0.3f);
+            makeParentActive = true;
+        }
+
         private void SetClosestBubbleColor()
         {
             if (lHand == null || rHand == null || _enableHoverEffect == false) return;
@@ -125,7 +147,35 @@ namespace _Sandbox.Scripts.Bubble
                 closestHand = rHand;
                 closestDistance = rDistance;
             }
-            UpdateBubbleColor(closestHand, closestDistance);
+
+            if (_bubbleType == BubbleType.DoubleTap) {
+                UpdateBubbleDoubleColor(closestHand, closestDistance);
+            } else if (_bubbleType == BubbleType.BothHands) {
+                UpdateBubbleBothColor(lDistance, rDistance);
+            } else {
+                UpdateBubbleColor(closestHand, closestDistance);
+            }
+        }
+
+        private void UpdateBubbleBothColor(float lDistance, float rDistance) {
+            if (isGlowing) return;
+            float lt = 1.0f - Mathf.Clamp01(lDistance / (_effectDistance));
+            Color lFinalColor = Color.Lerp(_defaultColor, lHand.HandColor, lt);
+            float rt = 1.0f - Mathf.Clamp01(rDistance / (_effectDistance));
+            Color rFinalColor = Color.Lerp(_defaultColor, rHand.HandColor, rt);
+            childVFX.SetVector4("color", rFinalColor);
+            parentVfx.SetVector4("color", lFinalColor);
+        }
+
+        private void UpdateBubbleDoubleColor(HandEffect hand, float distance) {
+            if (isGlowing) return;
+            float t = 1.0f - Mathf.Clamp01(distance / (_effectDistance));
+            Color finalColor = Color.Lerp(_defaultColor, hand.HandColor, t);
+            if (childVFX.enabled && !makeParentActive) {
+                childVFX.SetVector4("color", finalColor);
+            } else {
+                parentVfx.SetVector4("color", finalColor);
+            }
         }
 
         private void UpdateBubbleColor(HandEffect hand, float distance) {
@@ -133,9 +183,7 @@ namespace _Sandbox.Scripts.Bubble
             float t = 1.0f - Mathf.Clamp01(distance / (_effectDistance));
             Color finalColor = Color.Lerp(_defaultColor, hand.HandColor, t);
             parentVfx.SetVector4("color", finalColor);
-            // if (childVFX != null) childVFX.SetVector4("color", finalColor); //TODO: I hate this... when double.. this should be .. I hate this..
         }
-
-  
+        
     }
 }

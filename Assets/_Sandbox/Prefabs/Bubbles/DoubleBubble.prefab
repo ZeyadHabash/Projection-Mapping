@@ -352,6 +352,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7b0ebe77e2326749b3eb5de741557f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Sandbox.Scripts.Bubble.BubbleEffect
+  _bubbleType: 2
   _effectDistance: 3
   _defaultColor: {r: 2.1213202, g: 2.1213202, b: 2.1213202, a: 1}
   _showDuration: 0.5

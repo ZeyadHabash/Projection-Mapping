@@ -22,6 +22,10 @@ namespace _Sandbox.Scripts.Managers
             audioSource.volume = v;
         }
 
+        public void SwitchMusic(AudioClip clip) {
+            audioSource.clip = clip;
+        }
+
         public void FadeMusic(float duration, float volume) {
             volumeTween?.Kill();
              

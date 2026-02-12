@@ -10,7 +10,7 @@ using Sequence = DG.Tweening.Sequence;
 
 namespace _Sandbox.Scripts.Managers
 {
-    public class CalibrationSceneManager : MonoBehaviour
+    public class ProtectionSceneManager : MonoBehaviour
     {
         [SerializeField] private MeshRenderer grid;
         [SerializeField] private TextMeshPro sceneText;
@@ -34,7 +34,7 @@ namespace _Sandbox.Scripts.Managers
 
         private void Start() {
             Appear();
-            Invoke("HandleSceneEnd", 6f);
+            // Invoke("HandleSceneEnd", 6f);
         }
         
         private void SetupAppearSequence() {
