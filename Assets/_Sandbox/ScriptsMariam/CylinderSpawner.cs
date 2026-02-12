@@ -16,6 +16,7 @@ public class CylinderSpawner : MonoBehaviour
     public float delayBetweenAttacks = 3f; 
     public float minDelayBetweenSpawnPoints = 0.3f;
     public float maxDelayBetweenSpawnPoints = 0.8f;
+    private float delayTillSpawn = 10f;
 
     [Header("Cylinder Speed")]
     public float cylinderSpeed = 6f;
@@ -31,9 +32,10 @@ public class CylinderSpawner : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
-        InvokeRepeating(nameof(SpawnPattern), 2f, delayBetweenAttacks);
+        InvokeRepeating(nameof(SpawnPattern), delayTillSpawn, delayBetweenAttacks);
     }
 
+  
     void Update()
     {
         

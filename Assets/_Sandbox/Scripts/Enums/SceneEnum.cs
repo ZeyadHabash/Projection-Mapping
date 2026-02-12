@@ -2,7 +2,7 @@
 {
     public enum SceneEnum
     {
-        CutScene =0,
+        CutScene = 0,
         CalibrationScene = 1,
         CollectionScene = 2,
         ProtectionScene = 3,

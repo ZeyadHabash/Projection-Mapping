@@ -25,6 +25,7 @@ namespace _Sandbox.Scripts.UI
             handSequence.AppendCallback(() => SetHandState(isOpen: false));
             handSequence.AppendInterval(interval);
             handSequence.SetLoops(-1);
+            handSequence.SetLink(gameObject);
         }
         
         private void SetHandState(bool isOpen)

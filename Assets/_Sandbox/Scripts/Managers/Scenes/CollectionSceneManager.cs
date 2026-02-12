@@ -33,6 +33,7 @@ namespace _Sandbox.Scripts.Managers
 
         private void Start() {
             Appear();
+            Invoke("HandleSceneEnd", 2f);
         }
 
         private void SetupAppearSequence() {
