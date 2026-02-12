@@ -8,6 +8,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Sandbox/Scenes/FinalScenes/CalibrationScene.unity
     guid: 70a4885142d3f5944a8139a092d52652
+  - enabled: 1
+    path: Assets/_Sandbox/Scenes/FinalScenes/CollectionScene.unity
+    guid: 6d29e1d35ab5eb549bf904d3b709963b
+  - enabled: 1
+    path: Assets/_Sandbox/Scenes/FinalScenes/ProtectionScene.unity
+    guid: 5388d82569d488846977dc60947805e7
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
