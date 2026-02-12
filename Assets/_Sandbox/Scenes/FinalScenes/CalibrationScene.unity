@@ -240,7 +240,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Welcome
+  m_text: WELCOME
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7f7446bd36c724b4687a9faa280430e9, type: 2}
   m_sharedMaterial: {fileID: -7153587102476288429, guid: 7f7446bd36c724b4687a9faa280430e9, type: 2}
@@ -1490,6 +1490,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 85838959}
     m_Modifications:
+    - target: {fileID: 789786179365839839, guid: f4b1dcbe0f9abb94b8b601f226426cbc, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: -2962157270256717430, guid: e04fd8a124e1d7b4ba4e6a1733787096, type: 2}
     - target: {fileID: 935858012513732538, guid: f4b1dcbe0f9abb94b8b601f226426cbc, type: 3}
       propertyPath: m_LocalPosition.x
       value: -14
@@ -1545,6 +1549,14 @@ PrefabInstance:
     - target: {fileID: 6144434170473859116, guid: f4b1dcbe0f9abb94b8b601f226426cbc, type: 3}
       propertyPath: m_text
       value: Left Hand
+      objectReference: {fileID: 0}
+    - target: {fileID: 6144434170473859116, guid: f4b1dcbe0f9abb94b8b601f226426cbc, type: 3}
+      propertyPath: m_fontSize
+      value: 7.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6144434170473859116, guid: f4b1dcbe0f9abb94b8b601f226426cbc, type: 3}
+      propertyPath: m_fontStyle
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6192072024913613959, guid: f4b1dcbe0f9abb94b8b601f226426cbc, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -2278,6 +2290,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 85838959}
     m_Modifications:
+    - target: {fileID: 789786179365839839, guid: f4b1dcbe0f9abb94b8b601f226426cbc, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: -2962157270256717430, guid: e04fd8a124e1d7b4ba4e6a1733787096, type: 2}
     - target: {fileID: 935858012513732538, guid: f4b1dcbe0f9abb94b8b601f226426cbc, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
