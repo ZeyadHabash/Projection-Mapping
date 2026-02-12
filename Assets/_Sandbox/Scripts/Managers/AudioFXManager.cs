@@ -17,7 +17,7 @@ namespace _Sandbox.Scripts.Managers
             audioSource = GetComponent<AudioSource>();
         }
 
-        public void PlayFXClip(AudioClip audioClip, Transform spawnTransform, float volumeFactor = 1)
+        public void PlayFXClip(AudioClip audioClip,  float volumeFactor = 1)
         {
             audioSource.clip = audioClip;
             audioSource.volume = volumeFactor * fxVolume;

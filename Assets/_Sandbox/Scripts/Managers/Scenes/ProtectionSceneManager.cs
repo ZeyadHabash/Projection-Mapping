@@ -27,11 +27,13 @@ namespace _Sandbox.Scripts.Managers
         private void Awake() {
             gridMat = grid.material;
             SetupAppearSequence();
+            OSCManager.Instance.LeftHand.GetComponent<HandEffect>().SetDefendColor();
+            OSCManager.Instance.RightHand.GetComponent<HandEffect>().SetDefendColor();
         }
 
         private void Start() {
             Appear();
-            StartCoroutine(SceneTimerCoroutine());
+            // StartCoroutine(SceneTimerCoroutine());
             // Invoke("HandleSceneEnd", 6f);
         }
         
@@ -41,21 +43,19 @@ namespace _Sandbox.Scripts.Managers
             appearSequence.Join(gridMat.DOColor(_gridColor, transitionDuraiton).From(0f));
             appearSequence.Join(gridMat.DOFloat(6f, Fade, transitionDuraiton).From(24f));
             appearSequence.Join(sceneText.DOFade(1f, transitionDuraiton).From(0f));
-            OSCManager.Instance.LeftHand.GetComponent<HandEffect>().SetDefendColor();
-            OSCManager.Instance.RightHand.GetComponent<HandEffect>().SetDefendColor();
             appearSequence.SetManual(gameObject);
             
             // TODO: next scene --- call scene manager change grid material color to that nice shade of blue <3
         }
 
         private void Appear() {
-            AudioMusicManager.Instance.FadeMusic(transitionDuraiton*2, 0.7f);
+            if (AudioFXManager.Instance != null) AudioMusicManager.Instance.FadeMusic(transitionDuraiton*2, 0.7f);
             appearSequence.PlayForward();
         }
 
         private void Hide() {
             appearSequence.timeScale = 3f;
-            AudioMusicManager.Instance.FadeMusic(transitionDuraiton, 0f);
+            if (AudioFXManager.Instance != null) AudioMusicManager.Instance.FadeMusic(transitionDuraiton, 0f);
             appearSequence.PlayBackwards();
         }
         

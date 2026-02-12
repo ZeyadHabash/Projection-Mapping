@@ -124,12 +124,7 @@ namespace _Sandbox.Scripts.Bubble
         public void RemoveChild() {
             if (childVFX == null) return;
             childVFX.enabled = false;
-            // Vector4 currentHSV = childVFX.GetVector4("color");
-            // Vector4 targetHSV = new Vector4(currentHSV.x, currentHSV.y, 0f, currentHSV.w);
-            // DOTween.To(() => currentHSV, x => {
-            //     currentHSV = x;
-            //     childVFX.SetVector4("color", currentHSV);
-            // }, targetHSV, 0.3f);
+            PlayRandomAudio(collectAudioClips); //TODO: should I play simple audio clip here?
             makeParentActive = true;
         }
 
@@ -161,6 +156,7 @@ namespace _Sandbox.Scripts.Bubble
             if (isGlowing) return;
             float lt = 1.0f - Mathf.Clamp01(lDistance / (_effectDistance));
             Color lFinalColor = Color.Lerp(_defaultColor, lHand.HandColor, lt);
+            rDistance = Vector3.Distance(transform.position + new Vector3(2.27f,0,0), rHand.transform.position);
             float rt = 1.0f - Mathf.Clamp01(rDistance / (_effectDistance));
             Color rFinalColor = Color.Lerp(_defaultColor, rHand.HandColor, rt);
             childVFX.SetVector4("color", rFinalColor);
