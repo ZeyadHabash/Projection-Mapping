@@ -1,4 +1,6 @@
 using UnityEngine;
+using _Sandbox.Scripts.Managers;
+
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -29,9 +31,17 @@ public class PlayerMovement : MonoBehaviour
 
     public void TakeDamage()
     {
+        if (WordManager.Instance != null &&
+            WordManager.Instance.CollectedWords.Count > 0)
+        {
+            WordManager.Instance.RemoveRandomCollectedWord();
+        }
+
         StopAllCoroutines();
         StartCoroutine(FlashRed());
     }
+
+
 
     System.Collections.IEnumerator FlashRed()
     {
@@ -39,4 +49,6 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
         rend.material.color = originalColor;
     }
+
+    
 }

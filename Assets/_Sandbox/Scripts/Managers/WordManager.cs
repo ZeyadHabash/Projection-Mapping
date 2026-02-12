@@ -29,6 +29,16 @@ namespace _Sandbox.Scripts.Managers
             collectedWords.Add(word);
         }
 
+        public void RemoveRandomCollectedWord()
+        {
+            if (collectedWords.Count == 0)
+                return;
+
+            int randomIndex = Random.Range(0, collectedWords.Count);
+            collectedWords.RemoveAt(randomIndex);
+        }
+
+
         // Word Pool
         // Collected Word
 
