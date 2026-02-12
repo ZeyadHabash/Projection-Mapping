@@ -358,7 +358,8 @@ MonoBehaviour:
   _showDuration: 0.5
   _enableHoverEffect: 1
   _showOnSpawn: 0
-  collectAudioClips: []
+  collectAudioClips:
+  - {fileID: 8300000, guid: 128681840eff2254cbe9a6b7de9ffaa5, type: 3}
 --- !u!135 &4099138727610077605
 SphereCollider:
   m_ObjectHideFlags: 0

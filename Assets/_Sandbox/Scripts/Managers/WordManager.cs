@@ -14,16 +14,14 @@ namespace _Sandbox.Scripts.Managers
 
         public IReadOnlyList<string> CollectedWords => collectedWords;
         public WordDataSet WordData => wordData;
-        
 
         protected override void Awake() {
+            base.Awake();
             LoadWordsData();
         }
 
-        private void LoadWordsData()
-        {
+        private void LoadWordsData() {
             if (wordsDataFile == null) return;
-
             wordData = JsonUtility.FromJson<WordDataSet>(wordsDataFile.text);
         }
 
@@ -38,6 +36,5 @@ namespace _Sandbox.Scripts.Managers
         // Pop Word
         // Collect Word
         // Get Random Word
-
     }
 }

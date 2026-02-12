@@ -1,4 +1,5 @@
 using _Sandbox.Scripts.Utilities.Bases;
+using DG.Tweening;
 using UnityEngine;
 
 namespace _Sandbox.Scripts.Managers
@@ -9,6 +10,7 @@ namespace _Sandbox.Scripts.Managers
         private AudioSource audioSource;
         // private AudioMixer
         // private float musicVolume = 0.5f;
+        private Tween volumeTween;
         
         protected override void Awake() {
             base.Awake();
@@ -18,6 +20,17 @@ namespace _Sandbox.Scripts.Managers
 
         public void SetVolume(float v) {
             audioSource.volume = v;
+        }
+
+        public void FadeMusic(float duration, float volume) {
+            volumeTween?.Kill();
+             
+            volumeTween = DOTween.To(
+                () => audioSource.volume,                               
+                x => AudioMusicManager.Instance.SetVolume(x), 
+                volume,                                  
+                duration                     
+            ).SetEase(Ease.OutQuad);
         }
 
         //allow changing volume

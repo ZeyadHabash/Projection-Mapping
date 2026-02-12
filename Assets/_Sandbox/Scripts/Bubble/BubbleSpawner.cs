@@ -73,7 +73,7 @@ namespace _Sandbox.Scripts.Bubble
             for (int i = 0; i < spawnBurstCount && activeBubbles.Count < maxBubbles; i++)
             {
                 var data = GetUnusedWordEntry();
-                if (data != null) SpawnBubble(data.Value);
+                if (data != null) SpawnBubble(data);
             }
         }
 
@@ -117,7 +117,7 @@ namespace _Sandbox.Scripts.Bubble
             AudioFXManager.Instance.PlayRandomFXClip(clips);
         }
         
-        private Nullable<WordDataEntry> GetUnusedWordEntry() {
+        private WordDataEntry GetUnusedWordEntry() {
             var wordData = WordManager.Instance.WordData;
             for (int i = 0; i < wordData.words.Length; i++)
             {

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using _Sandbox.Scripts.Bubble;
 using _Sandbox.Scripts.UI;
 using UnityEngine;
@@ -21,6 +20,7 @@ namespace _Sandbox.Scripts.Managers
 
         public void HandlePhaseZero(bool isIncrease) {
             phaseZeroLevel = phaseZeroLevel + (isIncrease ? 1 : -1);
+            phaseZeroLevel = Mathf.Max(0, phaseZeroLevel);
             if (phaseZeroLevel == 2) {
                 leftBubble.HideAndDestory();
                 rightBubble.HideAndDestory();
