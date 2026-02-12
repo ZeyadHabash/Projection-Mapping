@@ -1,48 +1,26 @@
+using _Sandbox.Scripts.Enums;
+using _Sandbox.Scripts.Utilities.Bases;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameSceneManager : MonoBehaviour
+namespace _Sandbox.ScriptsMariam
 {
-    // Singleton 
-    public static GameSceneManager Instance;
-
-    // Enum 
-    public enum Scene
-    {
-        CalibrationScene = 0,
-        CollectionScene = 1,
-        ProtectionScene = 2,
-        // Add more scenes 
-    }
-
-    private void Awake()
+    public class GameSceneManager : Singleton<GameSceneManager>
     {
 
-        if (Instance == null)
+        public void LoadScene(SceneEnum scene)
         {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
+            SceneManager.LoadScene((int)scene);
         }
-        else
+
+        public void ReloadScene()
         {
-
-            Destroy(gameObject);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
-    }
 
-    public void LoadScene(Scene scene)
-    {
-        SceneManager.LoadScene((int)scene);
-    }
-
-    public void ReloadScene()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    }
-
-    public void QuitGame()
-    {
-        Application.Quit();
-        Debug.Log("Quit Game");
+        public void QuitGame()
+        {
+            Application.Quit();
+        }
     }
 }

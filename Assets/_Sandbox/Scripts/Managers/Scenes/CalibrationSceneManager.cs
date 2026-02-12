@@ -1,5 +1,7 @@
 using System;
 using System.Collections;
+using _Sandbox.Scripts.Enums;
+using _Sandbox.ScriptsMariam;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
@@ -66,7 +68,7 @@ namespace _Sandbox.Scripts.Managers
 
         IEnumerator GoToNextScene() {
             yield return new WaitForSeconds(transitionDuraiton/3f);
-            Debug.Log("next scene");
+            GameSceneManager.Instance.LoadScene(SceneEnum.CollectionScene);
         }
 
         private void NextScene() {

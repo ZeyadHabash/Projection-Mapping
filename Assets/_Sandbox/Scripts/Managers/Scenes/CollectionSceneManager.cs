@@ -33,12 +33,6 @@ namespace _Sandbox.Scripts.Managers
 
         private void SetupAppearSequence() {
             appearSequence = DOTween.Sequence();
-            appearSequence.Join(DOTween.To(
-                () => 0f,                               
-                x => AudioMusicManager.Instance.SetVolume(x), 
-                maxVolume,                                  
-                transitionDuraiton*2.5f                     
-            ).SetEase(Ease.InQuad));
             appearSequence.Join(gridMat.DOFade(1f, transitionDuraiton).From(0f));
             appearSequence.Join(gridMat.DOColor(_gridColor, transitionDuraiton).From(0f));
             appearSequence.Join(gridMat.DOFloat(6f, Fade, transitionDuraiton).From(24f));

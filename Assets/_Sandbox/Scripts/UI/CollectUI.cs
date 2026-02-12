@@ -15,7 +15,7 @@ namespace _Sandbox.Scripts.UI
         }
 
         private void HandleCollect(BubbleBehavior obj) {
-            curScore += 100; //get obj type and decide score...
+            curScore += 1; 
             score.text = $"Collect\n{curScore}";
         }
         
