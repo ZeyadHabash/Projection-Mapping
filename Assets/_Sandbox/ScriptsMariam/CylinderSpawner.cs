@@ -10,7 +10,7 @@ public class CylinderSpawner : MonoBehaviour
     [Header("Spawn Points")]
     public Transform[] spawnPoints; 
     public Color warningColor = Color.red;
-    public float warningTime = 0.3f; 
+    public float warningTime = 1.5f; 
 
     [Header("Timing")]
     public float delayBetweenAttacks = 3f; 
@@ -54,7 +54,7 @@ public class CylinderSpawner : MonoBehaviour
     {
         if (!firstSpawnDone)
         {
-            SpawnFirstHorizontal();
+            StartCoroutine(SpawnFirstPointCoroutine());
             firstSpawnDone = true;
         }
         else
@@ -66,13 +66,22 @@ public class CylinderSpawner : MonoBehaviour
     void SpawnFirstHorizontal()
     {
        
-        Vector3 spawnPos = new Vector3(0f, spawnPoints[0].position.y, -0.5f);
+        Vector3 spawnPos = new Vector3(-8f, 15f, -0.5f);
 
         GameObject cyl = Instantiate(cylinderPrefab, spawnPos, Quaternion.identity);
 
         StraightLineMove move = cyl.GetComponent<StraightLineMove>();
         move.Initialize(Vector3.right);
         move.speed = cylinderSpeed;
+    }
+
+    IEnumerator SpawnFirstPointCoroutine()
+    {
+        Debug.Log("WARNING!!!!! ");
+
+        yield return new WaitForSeconds(warningTime);
+        SpawnFirstHorizontal();
+        Debug.Log("SPAWNING CYLINDER!!!!! ");
     }
 
     IEnumerator SpawnFromPointsStaggered()
@@ -89,7 +98,11 @@ public class CylinderSpawner : MonoBehaviour
                 rend.material.color = warningColor;
             }
 
+            Debug.Log("WARNING!!!!! ");
+
             yield return new WaitForSeconds(warningTime);
+
+            Debug.Log("SPAWNING CYLINDER!!!!! ");
 
             if (rend != null)
             {
