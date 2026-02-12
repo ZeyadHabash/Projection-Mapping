@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Utilities.Bases
+namespace _Sandbox.Scripts.Utilities.Bases
 {
     public class Singleton<T> : MonoBehaviour where T : MonoBehaviour {
         

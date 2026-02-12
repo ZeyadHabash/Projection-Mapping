@@ -1,12 +1,13 @@
 using _Sandbox.Scripts.Hand;
 using _Sandbox.Scripts.IdentityCore;
+using _Sandbox.Scripts.Utilities.Bases;
 using extOSC;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace _Sandbox.Scripts.Managers
 {
-    public class OSCManager : MonoBehaviour
+    public class OSCManager : Singleton<OSCManager>
     {
         private OSCReceiver receiver;
 
@@ -19,13 +20,15 @@ namespace _Sandbox.Scripts.Managers
         [SerializeField] private bool enableKeyboardMovement = true;
         [SerializeField] private float keyboardMoveSpeed = 5f;
 
+        public HandController RightHand => rightHand;
+        public HandController LeftHand => leftHand;
         public Transform RightHandTransform => rightHand.HandTransform;
         public Transform LeftHandTransform => leftHand.HandTransform;
         public bool RightHandClosed => rightHand.IsClosed;
         public bool LeftHandClosed => leftHand.IsClosed;
 
-        void Awake()
-        {
+        protected override void Awake() {
+            base.Awake();
             receiver = GetComponent<OSCReceiver>();
         }
 
@@ -90,7 +93,6 @@ namespace _Sandbox.Scripts.Managers
                 coreMovement.SetRawY(message.Values[0].FloatValue);
         }
 
-
         void OnRightX(OSCMessage message)
         {
             rightHand.SetRawX(message.Values[0].FloatValue);
@@ -120,6 +122,10 @@ namespace _Sandbox.Scripts.Managers
         #endregion
 
         #region Keyboard
+
+        public void ShowHands() {
+            
+        }
 
         private void ApplyKeyboardClosedStates(Keyboard keyboard)
         {

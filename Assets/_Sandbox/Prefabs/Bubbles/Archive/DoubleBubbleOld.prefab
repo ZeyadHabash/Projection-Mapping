@@ -214,7 +214,7 @@ GameObject:
   - component: {fileID: 4099138727610077605}
   - component: {fileID: 3356450860490009225}
   m_Layer: 0
-  m_Name: DoubleBubble
+  m_Name: DoubleBubbleOld
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -354,10 +354,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::_Sandbox.Scripts.Bubble.BubbleEffect
   _effectDistance: 3
   _defaultColor: {r: 2.1213202, g: 2.1213202, b: 2.1213202, a: 1}
-  _showDuration: 0.5
-  _enableHoverEffect: 1
-  _showOnSpawn: 0
-  collectAudioClips: []
 --- !u!135 &4099138727610077605
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -393,7 +389,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BubbleBehavior
   word: 
   yValue: 0
-  type: 2
+  type: 0
 --- !u!1 &7526419853896055249
 GameObject:
   m_ObjectHideFlags: 0

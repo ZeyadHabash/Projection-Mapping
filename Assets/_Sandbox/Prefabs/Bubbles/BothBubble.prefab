@@ -356,6 +356,9 @@ MonoBehaviour:
   _effectDistance: 3
   _defaultColor: {r: 2.1213202, g: 2.1213202, b: 2.1213202, a: 1}
   _showDuration: 0.5
+  _enableHoverEffect: 1
+  _showOnSpawn: 0
+  collectAudioClips: []
 --- !u!135 &4099138727610077605
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -391,7 +394,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BubbleBehavior
   word: 
   yValue: 0
-  type: 0
+  type: 1
 --- !u!1 &6382816296076995870
 GameObject:
   m_ObjectHideFlags: 0
