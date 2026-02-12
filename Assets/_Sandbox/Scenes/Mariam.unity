@@ -317,7 +317,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &869511390
 Transform:
@@ -328,7 +328,7 @@ Transform:
   m_GameObject: {fileID: 869511389}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.40205, y: 10.28167, z: -0.51161}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1626,7 +1626,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!114 &2044882396
 MonoBehaviour:
@@ -1650,6 +1650,13 @@ MonoBehaviour:
   warningColor: {r: 1, g: 0, b: 0, a: 1}
   warningTime: 1.5
   delayBetweenAttacks: 5
+  minDelayBetweenSpawnPoints: 0.3
+  maxDelayBetweenSpawnPoints: 0.8
+  cylinderSpeed: 6
+  spawnAcceleration: 0.05
+  speedAcceleration: 0.5
+  minAttackDelay: 1
+  maxCylinderSpeed: 12
   minDelayBetweenSpawnPoints: 0.3
   maxDelayBetweenSpawnPoints: 0.8
   cylinderSpeed: 6

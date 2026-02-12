@@ -849,8 +849,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0397ae0e838a95644a2eac93f8e539e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BubbleSpawner
-  rightHand: {fileID: 1828342198}
-  leftHand: {fileID: 1765232017}
+  rightHand: {fileID: 0}
+  leftHand: {fileID: 0}
   bubbleDataFile: {fileID: 4900000, guid: 0a329d0643d8caa43b0137f04b441a25, type: 3}
   basicBubblePrefab: {fileID: 3997041098584715977, guid: 7a0da181d6584084fb1fd475c3b1e385, type: 3}
   bothHandsBubblePrefab: {fileID: 3997041098584715977, guid: f2391ac5ec680ba47b0b8fc56216d4cc, type: 3}
@@ -1052,8 +1052,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e038867b5335ff4bb352ceb1025ab79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TestTrackingNew
-  rightHand: {fileID: 1828342198}
-  leftHand: {fileID: 1765232017}
+  rightHand: {fileID: 0}
+  leftHand: {fileID: 0}
   enableKeyboardMovement: 1
   keyboardMoveSpeed: 15
 --- !u!1001 &1765232014
@@ -1117,17 +1117,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b03322f5b9fd394f9c6234008313c98, type: 3}
---- !u!114 &1765232017 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7307446180178768201, guid: 6b03322f5b9fd394f9c6234008313c98, type: 3}
-  m_PrefabInstance: {fileID: 1765232014}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94ee31616510c7b4ebe86edc7dcd75e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::HandController
 --- !u!1 &1826722609
 GameObject:
   m_ObjectHideFlags: 0
@@ -1176,17 +1165,6 @@ MonoBehaviour:
   welcomeText: {fileID: 236151471}
   transitionDuraiton: 0.8
   test: 0
---- !u!114 &1828342198 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 903695398653456193, guid: 64e1a557495cdab46a25e3db238e36ff, type: 3}
-  m_PrefabInstance: {fileID: 1589504381}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94ee31616510c7b4ebe86edc7dcd75e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::HandController
 --- !u!1 &2144808115
 GameObject:
   m_ObjectHideFlags: 0
