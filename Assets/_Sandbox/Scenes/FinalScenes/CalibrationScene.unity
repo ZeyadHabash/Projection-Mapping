@@ -2621,7 +2621,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 227564712668593049, guid: 7627b6049a2bf09458dbbbeb47c96ce1, type: 3}
       propertyPath: enableKeyboardMovement
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 252240531607398434, guid: 7627b6049a2bf09458dbbbeb47c96ce1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2663,9 +2663,41 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1975029258915546167, guid: 7627b6049a2bf09458dbbbeb47c96ce1, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2031569956807494214, guid: 7627b6049a2bf09458dbbbeb47c96ce1, type: 3}
       propertyPath: m_Name
       value: OSCManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 4529977906252270727, guid: 7627b6049a2bf09458dbbbeb47c96ce1, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5020100677154730791, guid: 7627b6049a2bf09458dbbbeb47c96ce1, type: 3}
+      propertyPath: _defendColor.b
+      value: 2.1471152
+      objectReference: {fileID: 0}
+    - target: {fileID: 5020100677154730791, guid: 7627b6049a2bf09458dbbbeb47c96ce1, type: 3}
+      propertyPath: _defendColor.g
+      value: 7.999999
+      objectReference: {fileID: 0}
+    - target: {fileID: 5020100677154730791, guid: 7627b6049a2bf09458dbbbeb47c96ce1, type: 3}
+      propertyPath: _defendColor.r
+      value: 1.2146596
+      objectReference: {fileID: 0}
+    - target: {fileID: 6908474849101961503, guid: 7627b6049a2bf09458dbbbeb47c96ce1, type: 3}
+      propertyPath: _defendColor.b
+      value: 2.1471152
+      objectReference: {fileID: 0}
+    - target: {fileID: 6908474849101961503, guid: 7627b6049a2bf09458dbbbeb47c96ce1, type: 3}
+      propertyPath: _defendColor.g
+      value: 7.999999
+      objectReference: {fileID: 0}
+    - target: {fileID: 6908474849101961503, guid: 7627b6049a2bf09458dbbbeb47c96ce1, type: 3}
+      propertyPath: _defendColor.r
+      value: 1.2146596
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

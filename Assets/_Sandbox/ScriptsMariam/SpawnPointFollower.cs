@@ -2,11 +2,14 @@ using UnityEngine;
 
 public class SpawnPointFollower : MonoBehaviour
 {
-    [Header("References")]
-    public Transform player;
+    private Transform player;
 
     [SerializeField] private bool followX = true;
     [SerializeField] private bool followY = true;
+
+    private void Start() {
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+    }
 
     void Update()
     {

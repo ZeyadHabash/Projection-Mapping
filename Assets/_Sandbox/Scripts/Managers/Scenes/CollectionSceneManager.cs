@@ -1,5 +1,8 @@
 using System;
 using System.Collections;
+using _Sandbox.Scripts.Bubble;
+using _Sandbox.Scripts.Enums;
+using _Sandbox.ScriptsMariam;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
@@ -13,7 +16,6 @@ namespace _Sandbox.Scripts.Managers
         [SerializeField] private MeshRenderer grid;
         [SerializeField] private TextMeshPro sceneText;
         [SerializeField] private float transitionDuraiton = 0.8f;
-        [SerializeField] private float maxVolume = 0.8f;
         [SerializeField] [ColorUsage(true, true)] private Color _gridColor = Color.gray;
         
         private Sequence appearSequence;
@@ -21,6 +23,8 @@ namespace _Sandbox.Scripts.Managers
         private static readonly int Fade = Shader.PropertyToID("_fade");
 
         public static Action OnEndSceneAction;
+        
+        private int collectedCount = 0;
 
         private void Awake() {
             gridMat = grid.material;
@@ -29,6 +33,7 @@ namespace _Sandbox.Scripts.Managers
 
         private void Start() {
             Appear();
+            Invoke("HandleSceneEnd", 3f);
         }
 
         private void SetupAppearSequence() {
@@ -56,21 +61,32 @@ namespace _Sandbox.Scripts.Managers
             Hide();
             StartCoroutine(GoToNextScene());
         }
-
-        IEnumerator GoToNextScene() {
-            yield return new WaitForSeconds(transitionDuraiton/3f);
-            Debug.Log("next scene");
+        
+        private void HandleBubbleCollect(BubbleBehavior bubble) {
+            collectedCount++;
+            if (collectedCount > 4) {
+                StartCoroutine(SceneTimerCoroutine());
+            }
+        }
+        
+        private IEnumerator SceneTimerCoroutine() {
+            yield return new WaitForSeconds(30f);
+            HandleSceneEnd();
         }
 
-        private void NextScene() {
-            
+
+        IEnumerator GoToNextScene() {
+            yield return new WaitForSeconds(transitionDuraiton/2f);
+            GameSceneManager.Instance.LoadScene(SceneEnum.ProtectionScene);
         }
 
         private void OnEnable() {
+            BubbleBehavior.OnCollected += HandleBubbleCollect;
             CollectionSceneManager.OnEndSceneAction += HandleSceneEnd;
         }
        
         private void OnDisable() {
+            BubbleBehavior.OnCollected -= HandleBubbleCollect;
             CollectionSceneManager.OnEndSceneAction -= HandleSceneEnd;
         }
     }

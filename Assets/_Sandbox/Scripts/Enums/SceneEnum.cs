@@ -5,5 +5,6 @@
         CalibrationScene = 0,
         CollectionScene = 1,
         ProtectionScene = 2,
+        RevealScene = 3,
     }
 }

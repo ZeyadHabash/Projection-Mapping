@@ -99,6 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Sandbox.Scripts.Hand.HandBehaviour
   _handColor: {r: 1.1839999, g: 5.1397133, b: 7.999999, a: 1}
+  _defendColor: {r: 0.98435116, g: 6.4831405, b: 1.765044, a: 1}
   ring: {fileID: 1316821318268797480}
   sphere: {fileID: 7478455468555206039}
   _lensIntensity: 0.03

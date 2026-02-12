@@ -5,7 +5,7 @@ public class CylinderSpawner : MonoBehaviour
 {
     [Header("Cylinder Setup")]
     public GameObject cylinderPrefab;
-    public Transform player;
+    private Transform player;
 
     [Header("Spawn Points")]
     public Transform[] spawnPoints; 
@@ -30,6 +30,7 @@ public class CylinderSpawner : MonoBehaviour
 
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player").transform;
         InvokeRepeating(nameof(SpawnPattern), 2f, delayBetweenAttacks);
     }
 

@@ -57,6 +57,10 @@ namespace _Sandbox.Scripts.Bubble
             bubbleEffect.GlowAndDestory();
         }
 
+        public void DisableAndHide() {
+            bubbleEffect.HideAndDestory();
+        }
+
         private void Initialize()
         {
             rightHand = OSCManager.Instance.RightHand;

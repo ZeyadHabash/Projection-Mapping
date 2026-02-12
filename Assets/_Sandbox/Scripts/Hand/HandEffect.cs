@@ -9,6 +9,7 @@ namespace _Sandbox.Scripts.Hand
     public class HandEffect : MonoBehaviour
     {
         [SerializeField] [ColorUsage(true, true)] private Color _handColor = Color.cyan;
+        [SerializeField] [ColorUsage(true, true)] private Color _defendColor = Color.cyan;
         [SerializeField] private MeshRenderer ring;
         [SerializeField] private MeshRenderer sphere;
         
@@ -36,10 +37,6 @@ namespace _Sandbox.Scripts.Hand
             sphereMat = sphere.material;
             SetupCloseSequence();
             SetupHideSequence();
-        }
-
-        private void Start() {
-            
         }
 
         private void SetupCloseSequence() {
@@ -105,6 +102,15 @@ namespace _Sandbox.Scripts.Hand
         }
         
         private void OnValidate() {
+            UpdateColor();
+        }
+
+        public void SetDefendColor() {
+            _handColor = _defendColor;
+            UpdateColor();
+        }
+
+        private void UpdateColor() {
             var tmpRenderer = GetComponentInChildren<Renderer>();
             var tmpLight = GetComponentInChildren<Light>();
             if (tmpRenderer != null)

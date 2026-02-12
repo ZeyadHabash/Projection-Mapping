@@ -139,16 +139,16 @@ namespace _Sandbox.Scripts.Bubble
 
             if (!string.IsNullOrWhiteSpace(bubble.Word)) WordManager.Instance.CollectWord(bubble.Word);
 
+            bubble.CollectAndHide();
             // StartCoroutine(DestroyAfterHide(bubble));
-            Destroy(bubble.gameObject);
+            // Destroy(bubble.gameObject);
         }
 
         private void HandleBubbleExpired(BubbleBehavior bubble)
         {
             StopDespawnRoutine(bubble);
             activeBubbles.Remove(bubble);
-            bubble.CollectAndHide();
-            Debug.Log("collect & hide");
+            bubble.DisableAndHide();
             // StartCoroutine(DestroyAfterHide(bubble));
         }
 
