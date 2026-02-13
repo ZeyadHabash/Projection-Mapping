@@ -15,7 +15,6 @@ namespace _Sandbox.Scripts.Managers
         protected override void Awake() {
             base.Awake();
             audioSource = GetComponent<AudioSource>();
-            audioSource.volume = 0;
         }
 
         public void SetVolume(float v) {
@@ -24,6 +23,7 @@ namespace _Sandbox.Scripts.Managers
 
         public void SwitchMusic(AudioClip clip) {
             audioSource.clip = clip;
+            audioSource.Play();
         }
 
         public void FadeMusic(float duration, float volume) {

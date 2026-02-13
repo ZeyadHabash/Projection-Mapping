@@ -12,16 +12,13 @@ namespace _Sandbox.Scripts.Bubble
 {
     public class BubbleSpawner : MonoBehaviour
     {
+        [SerializeField] private Transform[] spawnPoints;
+
         [SerializeField] private GameObject basicBubblePrefab;
         [SerializeField] private GameObject bothHandsBubblePrefab;
         [SerializeField] private GameObject doubleTapBubblePrefab;
 
-        [SerializeField] private Vector2 playAreaMin = new Vector2(-5f, 2f);
-        [SerializeField] private Vector2 playAreaMax = new Vector2(5f, 10f);
-
         [SerializeField] private float bubbleRadius = 0.5f;
-        [SerializeField] private float minSpawnSeparation = 1.1f;
-        [SerializeField] private int spawnPositionAttempts = 12;
         [SerializeField] private float bubbleLifetime = 10f;
 
         [SerializeField] private int maxBubbles = 10;
@@ -29,7 +26,6 @@ namespace _Sandbox.Scripts.Bubble
         [SerializeField] private float minSpawnInterval = 0.35f;
         [FormerlySerializedAs("spawnIntervalDecreasePerSecond")]
         [SerializeField] private float spawnRateIncreasePerSecond = 0.02f;
-        [SerializeField] private int spawnBurstCount = 3;
 
         [Header("Bubble Type Weights")]
         [SerializeField] private BubbleTypeWeight[] bubbleTypeWeights;
@@ -70,26 +66,22 @@ namespace _Sandbox.Scripts.Bubble
 
             spawnTimer = currentSpawnInterval;
 
-            for (int i = 0; i < spawnBurstCount && activeBubbles.Count < maxBubbles; i++)
+            for (int i = 0; i < 4 && activeBubbles.Count < maxBubbles; i++)
             {
                 var data = GetUnusedWordEntry();
-                if (data != null) SpawnBubble(data);
+                if (data != null) SpawnBubble(data, spawnPoints[i]);
             }
         }
 
-
-        private void SpawnBubble(WordDataEntry data)
+        private void SpawnBubble(WordDataEntry data, Transform point)
         {
             var type = GetWeightedBubbleType();
             var prefab = GetPrefabForType(type);
 
-            if (!TryGetSpawnPosition(out var spawnPosition))
-                return;
-
             var bubbleObject = Instantiate(prefab, transform);
             bubbleObject.transform.localScale = Vector3.one * (bubbleRadius * 2f);
 
-            bubbleObject.transform.position = spawnPosition;
+            bubbleObject.transform.position = point.position;
 
             var bubble = bubbleObject.GetComponent<BubbleBehavior>();
             if (bubble == null)
@@ -102,7 +94,6 @@ namespace _Sandbox.Scripts.Bubble
             spawnedWords.Add(data.word);
 
             StartDespawnRoutine(bubble);
-
             PlayRandomAudio(spawnAudioClips);
         }
         
@@ -149,61 +140,8 @@ namespace _Sandbox.Scripts.Bubble
             StopDespawnRoutine(bubble);
             activeBubbles.Remove(bubble);
             bubble.DisableAndHide();
-            // StartCoroutine(DestroyAfterHide(bubble));
         }
-
-        private bool TryGetSpawnPosition(out Vector3 position)
-        {
-            float minDistance = Mathf.Max(minSpawnSeparation, bubbleRadius * 2f);
-            float minDistanceSqr = minDistance * minDistance;
-
-            for (int attempt = 0; attempt < spawnPositionAttempts; attempt++)
-            {
-                position = new Vector3(
-                    UnityEngine.Random.Range(playAreaMin.x, playAreaMax.x),
-                    UnityEngine.Random.Range(playAreaMin.y, playAreaMax.y),
-                    -0.5f);
-
-                if (IsPositionClear(position, minDistanceSqr))
-                    return true;
-            }
-
-            position = Vector3.zero;
-            return false;
-        }
-
-        private bool IsPositionClear(Vector3 position, float minDistanceSqr)
-        {
-            for (int i = 0; i < activeBubbles.Count; i++)
-            {
-                var bubble = activeBubbles[i];
-                if (bubble == null)
-                    continue;
-
-                if ((bubble.transform.position - position).sqrMagnitude < minDistanceSqr)
-                    return false;
-            }
-
-            return true;
-        }
-
-
-        private IEnumerator DestroyAfterHide(BubbleBehavior bubble)
-        {
-            if (bubble == null)
-                yield break;
-
-            var effect = bubble.GetComponent<BubbleEffect>();
-            if (effect != null)
-            {
-                effect.Hide();
-                yield return new WaitForSeconds(effect.HideDuration);
-            }
-
-            if (bubble != null)
-                Destroy(bubble.gameObject);
-        }
-
+        
         private void StartDespawnRoutine(BubbleBehavior bubble)
         {
             if (bubble == null || bubbleLifetime <= 0f)

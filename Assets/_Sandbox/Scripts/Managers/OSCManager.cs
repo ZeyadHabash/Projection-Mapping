@@ -145,5 +145,14 @@ namespace _Sandbox.Scripts.Managers
         }
 
         #endregion
+
+        public void EnableCore() {
+            coreMovement.GetComponent<MeshRenderer>().enabled = true;
+            coreMovement.transform.GetChild(0).gameObject.SetActive(true);
+        }
+
+        public void DisableCore() {
+             coreMovement.GetComponent<MeshRenderer>().enabled = false;
+        }
     }
 }

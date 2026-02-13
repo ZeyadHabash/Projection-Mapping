@@ -101,11 +101,9 @@ public class CylinderSpawner : MonoBehaviour
                 rend.material.color = warningColor;
             }
 
-            Debug.Log("WARNING!!!!! ");
 
             yield return new WaitForSeconds(warningTime);
 
-            Debug.Log("SPAWNING CYLINDER!!!!! ");
 
             if (rend != null)
             {

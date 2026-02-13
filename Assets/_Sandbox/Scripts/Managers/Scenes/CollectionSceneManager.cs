@@ -33,7 +33,6 @@ namespace _Sandbox.Scripts.Managers
 
         private void Start() {
             Appear();
-            Invoke("HandleSceneEnd", 2f);
         }
 
         private void SetupAppearSequence() {
@@ -49,11 +48,13 @@ namespace _Sandbox.Scripts.Managers
 
         private void Appear() {
             // do appear logic...
+            if (AudioMusicManager.Instance != null) AudioMusicManager.Instance.FadeMusic(transitionDuraiton*2, 0.8f);
             appearSequence.PlayForward();
         }
 
         private void Hide() {
             appearSequence.timeScale = 3f;
+            if (AudioMusicManager.Instance != null) AudioMusicManager.Instance.FadeMusic(transitionDuraiton, 0f);
             appearSequence.PlayBackwards();
         }
         

@@ -36,7 +36,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 2.2, y: 2}
+  m_SizeDelta: {x: 2.7, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &789786179365839839
 MeshRenderer:
@@ -134,11 +134,11 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 5
+  m_fontSize: 5.6
   m_fontSizeBase: 9
   m_fontWeight: 400
   m_enableAutoSizing: 1
-  m_fontSizeMin: 5
+  m_fontSizeMin: 4
   m_fontSizeMax: 16
   m_fontStyle: 1
   m_HorizontalAlignment: 2
@@ -230,8 +230,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 3152649517695648239}
   - {fileID: 6123513366324511529}
@@ -280,7 +280,7 @@ VisualEffect:
       m_Array: []
     m_Int:
       m_Array:
-      - m_Value: 7000
+      - m_Value: 9000
         m_Name: count
         m_Overridden: 1
     m_Matrix4x4f:

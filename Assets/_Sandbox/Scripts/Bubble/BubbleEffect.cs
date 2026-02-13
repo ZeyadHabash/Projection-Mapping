@@ -44,10 +44,12 @@ namespace _Sandbox.Scripts.Bubble
                 }
             }
             word = GetComponentInChildren<TextMeshPro>();
+            SetInitState();
             SetupShowSequence();
         }
 
         private void Start() {
+            SetInitState();
             if (_showOnSpawn) Show();
         }
 
@@ -59,15 +61,18 @@ namespace _Sandbox.Scripts.Bubble
         private void SetupShowSequence()
         {
             showSequence = DOTween.Sequence();
+            showSequence.Join(transform.DOMoveZ(0, _showDuration).From(8));
+            showSequence.Join(transform.DOScale(1, _showDuration).From(0));
+            showSequence.Join(word.DOFade(1, _showDuration).From(0));
+            showSequence.SetManual(gameObject);
+        }
+
+        private void SetInitState() {
             transform.position = new Vector3(transform.position.x, transform.position.y, 8);
             transform.localScale = Vector3.zero;
             var curWordColor = word.color;
             curWordColor.a = 0;
             word.color = curWordColor;
-            showSequence.Join(transform.DOMoveZ(0, _showDuration));
-            showSequence.Join(transform.DOScale(1, _showDuration));
-            showSequence.Join(word.DOFade(1, _showDuration));
-            showSequence.SetManual(gameObject);
         }
 
         public void Init(HandController right, HandController left)
@@ -95,7 +100,7 @@ namespace _Sandbox.Scripts.Bubble
             DOTween.To(() => Color.clear,
                 x => parentVfx.SetVector4("color", x),
                 hdrColor,
-                _showDuration);
+                _showDuration).SetLink(gameObject);
             DOVirtual.DelayedCall(0.1f, () => showSequence.PlayBackwards());
             Destroy(gameObject, _showDuration+0.3f);
         }

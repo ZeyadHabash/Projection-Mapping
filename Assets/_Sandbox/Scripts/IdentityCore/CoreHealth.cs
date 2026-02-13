@@ -8,6 +8,9 @@ namespace _Sandbox.Scripts.IdentityCore
     {
         private Renderer rend;
         private Color originalColor;
+        [SerializeField] [ColorUsage(true, true)] private Color damageColor = Color.red;
+        private static readonly int EmissionColor = Shader.PropertyToID("_EmissionColor");
+        [SerializeField] private AudioClip damageClip;
 
         void Awake() {
             rend = GetComponent<Renderer>();
@@ -18,12 +21,14 @@ namespace _Sandbox.Scripts.IdentityCore
             if (WordManager.Instance != null) WordManager.Instance.RemoveRandomCollectedWord();
             StopAllCoroutines();
             StartCoroutine(FlashRed());
+            if (AudioFXManager.Instance != null && damageClip != null) AudioFXManager.Instance.PlayFXClip(damageClip);
         }
 
         IEnumerator FlashRed() {
-            rend.material.color = Color.red;
+            rend.material.SetColor(EmissionColor, damageColor);
+            rend.material.EnableKeyword("_EMISSION"); 
             yield return new WaitForSeconds(0.2f);
-            rend.material.color = originalColor;
+            rend.material.SetColor(EmissionColor, originalColor);
         }
     }
 }

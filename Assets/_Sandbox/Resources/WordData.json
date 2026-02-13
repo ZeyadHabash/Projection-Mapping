@@ -1,92 +1,153 @@
 {
   "words": [
-    {
-      "word": "BASIC",
-      "rgby": [0.25, 0.8, 1.0, 0.15]
-    },
-    {
-      "word": "PAIR",
-      "rgby": [0.4, 1.0, 0.4, 0.35]
-    },
-    {
-      "word": "SPARK",
-      "rgby": [1.0, 0.85, 0.2, 0.2]
-    },
-    {
-      "word": "WAVE",
-      "rgby": [0.2, 0.6, 1.0, 0.3]
-    },
-    {
-      "word": "FUSE",
-      "rgby": [1.0, 0.4, 0.2, 0.45]
-    },
-    {
-      "word": "SYNC",
-      "rgby": [0.4, 1.0, 0.7, 0.25]
-    },
-    {
-      "word": "GLOW",
-      "rgby": [0.9, 0.5, 1.0, 0.4]
-    },
-    {
-      "word": "DRIFT",
-      "rgby": [0.3, 0.9, 0.9, 0.55]
-    },
-    {
-      "word": "LINK",
-      "rgby": [0.2, 1.0, 0.3, 0.35]
-    },
-    {
-      "word": "FLARE",
-      "rgby": [1.0, 0.3, 0.1, 0.5]
-    },
-    {
-      "word": "RUSH",
-      "rgby": [0.95, 0.7, 0.2, 0.2]
-    },
-    {
-      "word": "ECHO",
-      "rgby": [0.6, 0.7, 1.0, 0.3]
-    },
-    {
-      "word": "CLASP",
-      "rgby": [0.3, 1.0, 0.6, 0.4]
-    },
-    {
-      "word": "PULSE",
-      "rgby": [1.0, 0.2, 0.6, 0.6]
-    },
-    {
-      "word": "HALO",
-      "rgby": [0.9, 0.9, 0.5, 0.3]
-    },
-    {
-      "word": "TETHER",
-      "rgby": [0.2, 0.95, 0.5, 0.45]
-    },
-    {
-      "word": "FLOOD",
-      "rgby": [0.1, 0.6, 0.9, 0.55]
-    },
-    {
-      "word": "QUICK",
-      "rgby": [1.0, 0.8, 0.1, 0.2]
-    },
-    {
-      "word": "KNOT",
-      "rgby": [0.4, 1.0, 0.4, 0.5]
-    },
-    {
-      "word": "STAMP",
-      "rgby": [0.95, 0.35, 0.25, 0.6]
-    },
-    {
-      "word": "RISE",
-      "rgby": [0.6, 0.95, 1.0, 0.25]
-    },
-    {
-      "word": "DOUBLE",
-      "rgby": [1.0, 0.6, 0.2, 0.6]
-    }
+    { "word": "Arrow", "rgby": [1.0, 0.0, 0.0, 0.0] },
+    { "word": "Blade", "rgby": [1.0, 0.0, 0.0, 0.0] },
+    { "word": "Spark", "rgby": [1.0, 1.0, 0.0, 0.0] },
+    { "word": "Crown", "rgby": [1.0, 0.0, 0.0, 0.0] },
+    { "word": "Outcome", "rgby": [1.0, 0.0, 0.0, 0.0] },
+    { "word": "Mirror", "rgby": [1.0, 1.0, 1.0, 1.0] },
+    { "word": "Mountain", "rgby": [1.0, 0.0, 0.0, 0.0] },
+    { "word": "Iron", "rgby": [1.0, 0.0, 0.0, 0.0] },
+    { "word": "Thunder", "rgby": [1.0, 0.0, 0.0, 0.0] },
+    { "word": "Craft", "rgby": [1.0, 0.0, 0.0, 0.0] },
+    { "word": "Flask", "rgby": [1.0, 0.0, 0.0, 0.0] },
+    { "word": "Target", "rgby": [1.0, 0.0, 0.0, 0.0] },
+    { "word": "Checklist", "rgby": [1.0, 0.0, 0.0, 0.0] },
+    { "word": "Arena flame", "rgby": [1.0, 0.0, 0.0, 0.0] },
+    { "word": "Roar", "rgby": [1.0, 0.0, 0.0, 0.0] },
+    { "word": "Anchor", "rgby": [1.0, 0.0, 1.0, 0.0] },
+    { "word": "Rise", "rgby": [1.0, 0.0, 0.0, 0.0] },
+    { "word": "Direct", "rgby": [1.0, 0.0, 0.0, 0.0] },
+    { "word": "Decisive", "rgby": [1.0, 0.0, 0.0, 0.0] },
+    { "word": "Act", "rgby": [1.0, 0.0, 0.0, 0.0] },
+    { "word": "Result", "rgby": [1.0, 0.0, 0.0, 0.0] },
+    { "word": "Dominant", "rgby": [1.0, 0.0, 0.0, 0.0] },
+    { "word": "Argue", "rgby": [1.0, 0.0, 0.0, 0.0] },
+    { "word": "Honest", "rgby": [1.0, 0.0, 0.0, 0.0] },
+    { "word": "Strong", "rgby": [1.0, 0.0, 0.0, 0.0] },
+    { "word": "Power", "rgby": [1.0, 0.0, 0.0, 0.0] },
+    { "word": "Control", "rgby": [1.0, 0.0, 0.0, 0.0] },
+    { "word": "Fast", "rgby": [1.0, 0.0, 0.0, 0.0] },
+    { "word": "Extroverted", "rgby": [1.0, 0.0, 0.0, 0.0] },
+    { "word": "Risk", "rgby": [1.0, 0.0, 0.0, 0.0] },
+    { "word": "Clear", "rgby": [1.0, 0.0, 0.0, 0.0] },
+    { "word": "Focus", "rgby": [1.0, 0.0, 0.0, 0.0] },
+    { "word": "Challenge", "rgby": [1.0, 0.0, 0.0, 0.0] },
+    { "word": "Task", "rgby": [1.0, 0.0, 0.0, 0.0] },
+    { "word": "Oriented", "rgby": [1.0, 0.0, 0.0, 1.0] },
+    { "word": "Bold", "rgby": [1.0, 0.0, 0.0, 0.0] },
+    { "word": "Goals", "rgby": [1.0, 0.0, 0.0, 0.0] },
+    { "word": "Unstoppable", "rgby": [1.0, 0.0, 0.0, 0.0] },
+    { "word": "Confident", "rgby": [1.0, 0.0, 0.0, 0.0] },
+    { "word": "Assertive", "rgby": [1.0, 0.0, 0.0, 0.0] },
+    { "word": "Radiant", "rgby": [0.0, 1.0, 0.0, 0.0] },
+    { "word": "Gravity", "rgby": [0.0, 1.0, 0.0, 0.0] },
+    { "word": "Influence", "rgby": [0.0, 1.0, 0.0, 0.0] },
+    { "word": "Light", "rgby": [0.0, 1.0, 0.0, 0.0] },
+    { "word": "Breeze", "rgby": [0.0, 1.0, 1.0, 0.0] },
+    { "word": "Glow", "rgby": [0.0, 1.0, 0.0, 0.0] },
+    { "word": "Bloom", "rgby": [0.0, 1.0, 0.0, 0.0] },
+    { "word": "Network", "rgby": [0.0, 1.0, 0.0, 0.0] },
+    { "word": "Link", "rgby": [0.0, 1.0, 1.0, 0.0] },
+    { "word": "Echo", "rgby": [0.0, 1.0, 1.0, 0.0] },
+    { "word": "Spotlight", "rgby": [0.0, 1.0, 0.0, 0.0] },
+    { "word": "Wild", "rgby": [0.0, 1.0, 0.0, 0.0] },
+    { "word": "Star", "rgby": [0.0, 1.0, 0.0, 0.0] },
+    { "word": "Rush", "rgby": [0.0, 1.0, 0.0, 0.0] },
+    { "word": "Flash", "rgby": [0.0, 1.0, 0.0, 0.0] },
+    { "word": "Cozy", "rgby": [0.0, 1.0, 0.0, 0.0] },
+    { "word": "Energetic", "rgby": [0.0, 1.0, 0.0, 0.0] },
+    { "word": "Expressive", "rgby": [0.0, 1.0, 0.0, 0.0] },
+    { "word": "Persuasive", "rgby": [0.0, 1.0, 0.0, 0.0] },
+    { "word": "Inspire", "rgby": [0.0, 1.0, 0.0, 0.0] },
+    { "word": "Emotional", "rgby": [0.0, 1.0, 0.0, 0.0] },
+    { "word": "Solutions", "rgby": [0.0, 1.0, 0.0, 0.0] },
+    { "word": "Enthusiastic", "rgby": [0.0, 1.0, 0.0, 0.0] },
+    { "word": "Connections", "rgby": [0.0, 1.0, 0.0, 0.0] },
+    { "word": "Talkative", "rgby": [0.0, 1.0, 0.0, 0.0] },
+    { "word": "Joy", "rgby": [0.0, 1.0, 0.0, 0.0] },
+    { "word": "Popular", "rgby": [0.0, 1.0, 0.0, 0.0] },
+    { "word": "Entertain", "rgby": [0.0, 1.0, 0.0, 0.0] },
+    { "word": "Spontaneous", "rgby": [0.0, 1.0, 0.0, 0.0] },
+    { "word": "Create", "rgby": [0.0, 1.0, 0.0, 0.0] },
+    { "word": "Loud", "rgby": [0.0, 1.0, 0.0, 0.0] },
+    { "word": "Vibrant", "rgby": [0.0, 1.0, 0.0, 0.0] },
+    { "word": "Imaginative", "rgby": [0.0, 1.0, 0.0, 0.0] },
+    { "word": "Bright", "rgby": [0.0, 1.0, 0.0, 0.0] },
+    { "word": "Optimistic", "rgby": [0.0, 1.0, 0.0, 0.0] },
+    { "word": "Hopeful", "rgby": [0.0, 1.0, 0.0, 0.0] },
+    { "word": "Dynamic", "rgby": [0.0, 1.0, 0.0, 0.0] },
+    { "word": "New", "rgby": [0.0, 1.0, 0.0, 0.0] },
+    { "word": "Adventure", "rgby": [0.0, 1.0, 0.0, 0.0] },
+    { "word": "Shield", "rgby": [0.0, 0.0, 1.0, 1.0] },
+    { "word": "Boost", "rgby": [0.0, 0.0, 1.0, 0.0] },
+    { "word": "Drive", "rgby": [0.0, 0.0, 1.0, 0.0] },
+    { "word": "Pillar", "rgby": [0.0, 0.0, 1.0, 0.0] },
+    { "word": "Rock", "rgby": [0.0, 0.0, 1.0, 0.0] },
+    { "word": "Compass", "rgby": [0.0, 0.0, 1.0, 0.0] },
+    { "word": "Clock", "rgby": [0.0, 0.0, 1.0, 1.0] },
+    { "word": "Hug", "rgby": [0.0, 0.0, 1.0, 0.0] },
+    { "word": "Track", "rgby": [0.0, 0.0, 1.0, 0.0] },
+    { "word": "Pattern", "rgby": [0.0, 0.0, 1.0, 0.0] },
+    { "word": "Chain", "rgby": [0.0, 0.0, 1.0, 0.0] },
+    { "word": "Key", "rgby": [0.0, 0.0, 1.0, 0.0] },
+    { "word": "Root", "rgby": [0.0, 0.0, 1.0, 0.0] },
+    { "word": "Loyal", "rgby": [0.0, 0.0, 1.0, 0.0] },
+    { "word": "Communication", "rgby": [0.0, 0.0, 1.0, 0.0] },
+    { "word": "Motivate", "rgby": [0.0, 0.0, 1.0, 0.0] },
+    { "word": "Stable", "rgby": [0.0, 0.0, 1.0, 0.0] },
+    { "word": "Steady", "rgby": [0.0, 0.0, 1.0, 0.0] },
+    { "word": "Patient", "rgby": [0.0, 0.0, 1.0, 0.0] },
+    { "word": "Listener", "rgby": [0.0, 0.0, 1.0, 0.0] },
+    { "word": "Caring", "rgby": [0.0, 0.0, 1.0, 0.0] },
+    { "word": "Calm", "rgby": [0.0, 0.0, 1.0, 1.0] },
+    { "word": "Relaxed", "rgby": [0.0, 0.0, 1.0, 0.0] },
+    { "word": "Moderate", "rgby": [0.0, 0.0, 1.0, 0.0] },
+    { "word": "Easy going", "rgby": [0.0, 0.0, 1.0, 0.0] },
+    { "word": "Smooth", "rgby": [0.0, 0.0, 1.0, 0.0] },
+    { "word": "Consistent", "rgby": [0.0, 0.0, 1.0, 0.0] },
+    { "word": "Dependable", "rgby": [0.0, 0.0, 1.0, 0.0] },
+    { "word": "Adaptable", "rgby": [0.0, 0.0, 1.0, 0.0] },
+    { "word": "Reliable", "rgby": [0.0, 0.0, 1.0, 0.0] },
+    { "word": "Trustworthy", "rgby": [0.0, 0.0, 1.0, 0.0] },
+    { "word": "Balanced", "rgby": [0.0, 0.0, 1.0, 0.0] },
+    { "word": "Modest", "rgby": [0.0, 0.0, 1.0, 0.0] },
+    { "word": "Grounded", "rgby": [0.0, 0.0, 1.0, 0.0] },
+    { "word": "Forgiving", "rgby": [0.0, 0.0, 1.0, 0.0] },
+    { "word": "Glass", "rgby": [0.0, 0.0, 0.0, 1.0] },
+    { "word": "Vision", "rgby": [0.0, 0.0, 0.0, 1.0] },
+    { "word": "Map", "rgby": [0.0, 0.0, 0.0, 1.0] },
+    { "word": "Storm", "rgby": [0.0, 0.0, 0.0, 1.0] },
+    { "word": "Soft", "rgby": [0.0, 0.0, 0.0, 1.0] },
+    { "word": "Stone", "rgby": [0.0, 0.0, 0.0, 1.0] },
+    { "word": "Lens", "rgby": [0.0, 0.0, 0.0, 1.0] },
+    { "word": "Thread", "rgby": [0.0, 0.0, 0.0, 1.0] },
+    { "word": "Watch", "rgby": [0.0, 0.0, 0.0, 1.0] },
+    { "word": "Shadow", "rgby": [0.0, 0.0, 0.0, 1.0] },
+    { "word": "Flow", "rgby": [0.0, 0.0, 0.0, 1.0] },
+    { "word": "Space", "rgby": [0.0, 0.0, 0.0, 1.0] },
+    { "word": "Guard", "rgby": [0.0, 0.0, 0.0, 1.0] },
+    { "word": "Chess", "rgby": [0.0, 0.0, 0.0, 1.0] },
+    { "word": "Equation", "rgby": [0.0, 0.0, 0.0, 1.0] },
+    { "word": "Reflection", "rgby": [0.0, 0.0, 0.0, 1.0] },
+    { "word": "Long term", "rgby": [0.0, 0.0, 0.0, 1.0] },
+    { "word": "Thinker", "rgby": [0.0, 0.0, 0.0, 1.0] },
+    { "word": "Conceptual", "rgby": [0.0, 0.0, 0.0, 1.0] },
+    { "word": "Complain", "rgby": [0.0, 0.0, 0.0, 1.0] },
+    { "word": "Gentle", "rgby": [0.0, 0.0, 0.0, 1.0] },
+    { "word": "Plan", "rgby": [0.0, 0.0, 0.0, 1.0] },
+    { "word": "Perfectionist", "rgby": [0.0, 0.0, 0.0, 1.0] },
+    { "word": "Precise", "rgby": [0.0, 0.0, 0.0, 1.0] },
+    { "word": "Observe", "rgby": [0.0, 0.0, 0.0, 1.0] },
+    { "word": "Self control", "rgby": [0.0, 0.0, 0.0, 1.0] },
+    { "word": "Organized", "rgby": [0.0, 0.0, 0.0, 1.0] },
+    { "word": "Systematic", "rgby": [0.0, 0.0, 0.0, 1.0] },
+    { "word": "Distant", "rgby": [0.0, 0.0, 0.0, 1.0] },
+    { "word": "Logical", "rgby": [0.0, 0.0, 0.0, 1.0] },
+    { "word": "Methodical", "rgby": [0.0, 0.0, 0.0, 1.0] },
+    { "word": "Professional", "rgby": [0.0, 0.0, 0.0, 1.0] },
+    { "word": "Strategic", "rgby": [0.0, 0.0, 0.0, 1.0] },
+    { "word": "Rational", "rgby": [0.0, 0.0, 0.0, 1.0] },
+    { "word": "Disciplined", "rgby": [0.0, 0.0, 0.0, 1.0] }
   ]
 }

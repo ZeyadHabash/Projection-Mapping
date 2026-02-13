@@ -17,12 +17,13 @@ namespace _Sandbox.Scripts.Managers
         [SerializeField] private TextMeshPro sceneText;
         [SerializeField] private float transitionDuraiton = 0.8f;
         [SerializeField] [ColorUsage(true, true)] private Color _gridColor = Color.gray;
+        [SerializeField] private AudioClip sceneMusic;
+        [SerializeField] private float sceneDuration = 60f;
         
         private Sequence appearSequence;
         private Material gridMat;
         private static readonly int Fade = Shader.PropertyToID("_fade");
 
-        public static Action OnEndSceneAction;
 
         private void Awake() {
             gridMat = grid.material;
@@ -33,8 +34,7 @@ namespace _Sandbox.Scripts.Managers
 
         private void Start() {
             Appear();
-            // StartCoroutine(SceneTimerCoroutine());
-            // Invoke("HandleSceneEnd", 6f);
+            StartCoroutine(SceneTimerCoroutine());
         }
         
         private void SetupAppearSequence() {
@@ -49,13 +49,17 @@ namespace _Sandbox.Scripts.Managers
         }
 
         private void Appear() {
-            if (AudioFXManager.Instance != null) AudioMusicManager.Instance.FadeMusic(transitionDuraiton*2, 0.7f);
+            if (OSCManager.Instance != null) OSCManager.Instance.EnableCore();
+            if (AudioMusicManager.Instance != null) {
+                AudioMusicManager.Instance.SwitchMusic(sceneMusic);
+                AudioMusicManager.Instance.FadeMusic(transitionDuraiton*2, 0.7f);
+            }
             appearSequence.PlayForward();
         }
 
         private void Hide() {
             appearSequence.timeScale = 3f;
-            if (AudioFXManager.Instance != null) AudioMusicManager.Instance.FadeMusic(transitionDuraiton, 0f);
+            if (AudioMusicManager.Instance != null) AudioMusicManager.Instance.FadeMusic(transitionDuraiton, 0f);
             appearSequence.PlayBackwards();
         }
         
@@ -65,7 +69,7 @@ namespace _Sandbox.Scripts.Managers
         }
         
         private IEnumerator SceneTimerCoroutine() {
-            yield return new WaitForSeconds(60f);
+            yield return new WaitForSeconds(sceneDuration);
             HandleSceneEnd();
         }
 
@@ -73,14 +77,5 @@ namespace _Sandbox.Scripts.Managers
             yield return new WaitForSeconds(transitionDuraiton/2f);
             GameSceneManager.Instance.LoadScene(SceneEnum.RevealScene);
         }
-        
-        private void OnEnable() {
-            ProtectionSceneManager.OnEndSceneAction += HandleSceneEnd;
-        }
-       
-        private void OnDisable() {
-            ProtectionSceneManager.OnEndSceneAction -= HandleSceneEnd;
-        }
-
     }
 }
