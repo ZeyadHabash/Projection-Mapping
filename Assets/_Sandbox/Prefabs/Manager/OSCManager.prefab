@@ -228,7 +228,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66e4ed77d80549d381b801c387c87108, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Sandbox.Scripts.IdentityCore.CoreHealth
-  damageColor: {r: 69.947914, g: 5.675014, b: 5.675014, a: 1}
+  damageColor: {r: 139.89583, g: 11.350028, b: 11.350028, a: 1}
   damageClip: {fileID: 8300000, guid: 97c1323ba3d84934b95485b02e3af881, type: 3}
 --- !u!114 &2996647591122279540
 MonoBehaviour:
@@ -255,156 +255,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c96a23fa58414eea8b8d7cded3695df7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Sandbox.Scripts.IdentityCore.CoreColor
-  _redGradient:
-    serializedVersion: 2
-    key0: {r: 1, g: 1, b: 1, a: 1}
-    key1: {r: 1, g: 1, b: 1, a: 1}
-    key2: {r: 0, g: 0, b: 0, a: 0}
-    key3: {r: 0, g: 0, b: 0, a: 0}
-    key4: {r: 0, g: 0, b: 0, a: 0}
-    key5: {r: 0, g: 0, b: 0, a: 0}
-    key6: {r: 0, g: 0, b: 0, a: 0}
-    key7: {r: 0, g: 0, b: 0, a: 0}
-    ctime0: 0
-    ctime1: 65535
-    ctime2: 0
-    ctime3: 0
-    ctime4: 0
-    ctime5: 0
-    ctime6: 0
-    ctime7: 0
-    atime0: 0
-    atime1: 65535
-    atime2: 0
-    atime3: 0
-    atime4: 0
-    atime5: 0
-    atime6: 0
-    atime7: 0
-    m_Mode: 0
-    m_ColorSpace: -1
-    m_NumColorKeys: 2
-    m_NumAlphaKeys: 2
-  _yellowGradient:
-    serializedVersion: 2
-    key0: {r: 1, g: 1, b: 1, a: 1}
-    key1: {r: 1, g: 1, b: 1, a: 1}
-    key2: {r: 0, g: 0, b: 0, a: 0}
-    key3: {r: 0, g: 0, b: 0, a: 0}
-    key4: {r: 0, g: 0, b: 0, a: 0}
-    key5: {r: 0, g: 0, b: 0, a: 0}
-    key6: {r: 0, g: 0, b: 0, a: 0}
-    key7: {r: 0, g: 0, b: 0, a: 0}
-    ctime0: 0
-    ctime1: 65535
-    ctime2: 0
-    ctime3: 0
-    ctime4: 0
-    ctime5: 0
-    ctime6: 0
-    ctime7: 0
-    atime0: 0
-    atime1: 65535
-    atime2: 0
-    atime3: 0
-    atime4: 0
-    atime5: 0
-    atime6: 0
-    atime7: 0
-    m_Mode: 0
-    m_ColorSpace: -1
-    m_NumColorKeys: 2
-    m_NumAlphaKeys: 2
-  _greenGradient:
-    serializedVersion: 2
-    key0: {r: 1, g: 1, b: 1, a: 1}
-    key1: {r: 1, g: 1, b: 1, a: 1}
-    key2: {r: 0, g: 0, b: 0, a: 0}
-    key3: {r: 0, g: 0, b: 0, a: 0}
-    key4: {r: 0, g: 0, b: 0, a: 0}
-    key5: {r: 0, g: 0, b: 0, a: 0}
-    key6: {r: 0, g: 0, b: 0, a: 0}
-    key7: {r: 0, g: 0, b: 0, a: 0}
-    ctime0: 0
-    ctime1: 65535
-    ctime2: 0
-    ctime3: 0
-    ctime4: 0
-    ctime5: 0
-    ctime6: 0
-    ctime7: 0
-    atime0: 0
-    atime1: 65535
-    atime2: 0
-    atime3: 0
-    atime4: 0
-    atime5: 0
-    atime6: 0
-    atime7: 0
-    m_Mode: 0
-    m_ColorSpace: -1
-    m_NumColorKeys: 2
-    m_NumAlphaKeys: 2
-  _blueGradient:
-    serializedVersion: 2
-    key0: {r: 1, g: 1, b: 1, a: 1}
-    key1: {r: 1, g: 1, b: 1, a: 1}
-    key2: {r: 0, g: 0, b: 0, a: 0}
-    key3: {r: 0, g: 0, b: 0, a: 0}
-    key4: {r: 0, g: 0, b: 0, a: 0}
-    key5: {r: 0, g: 0, b: 0, a: 0}
-    key6: {r: 0, g: 0, b: 0, a: 0}
-    key7: {r: 0, g: 0, b: 0, a: 0}
-    ctime0: 0
-    ctime1: 65535
-    ctime2: 0
-    ctime3: 0
-    ctime4: 0
-    ctime5: 0
-    ctime6: 0
-    ctime7: 0
-    atime0: 0
-    atime1: 65535
-    atime2: 0
-    atime3: 0
-    atime4: 0
-    atime5: 0
-    atime6: 0
-    atime7: 0
-    m_Mode: 0
-    m_ColorSpace: -1
-    m_NumColorKeys: 2
-    m_NumAlphaKeys: 2
-  _whiteGradient:
-    serializedVersion: 2
-    key0: {r: 1, g: 1, b: 1, a: 1}
-    key1: {r: 1, g: 1, b: 1, a: 1}
-    key2: {r: 0, g: 0, b: 0, a: 0}
-    key3: {r: 0, g: 0, b: 0, a: 0}
-    key4: {r: 0, g: 0, b: 0, a: 0}
-    key5: {r: 0, g: 0, b: 0, a: 0}
-    key6: {r: 0, g: 0, b: 0, a: 0}
-    key7: {r: 0, g: 0, b: 0, a: 0}
-    ctime0: 0
-    ctime1: 65535
-    ctime2: 0
-    ctime3: 0
-    ctime4: 0
-    ctime5: 0
-    ctime6: 0
-    ctime7: 0
-    atime0: 0
-    atime1: 65535
-    atime2: 0
-    atime3: 0
-    atime4: 0
-    atime5: 0
-    atime6: 0
-    atime7: 0
-    m_Mode: 0
-    m_ColorSpace: -1
-    m_NumColorKeys: 2
-    m_NumAlphaKeys: 2
+  _redGradient: {r: 266.08005, g: 11.546841, b: 11.546841, a: 0}
+  _yellowGradient: {r: 266.08, g: 223.85077, b: 23.595757, a: 0}
+  _greenGradient: {r: 55.72619, g: 266.08, b: 76.173355, a: 0}
+  _blueGradient: {r: 35.64468, g: 135.02335, b: 266.08002, a: 0}
+  _whiteGradient: {r: 256, g: 256, b: 256, a: 0}
+  _grayGradient: {r: 0.5698112, g: 0.5698112, b: 0.5698112, a: 0}
+  vfx: {fileID: 2181825233796684907}
 --- !u!1001 &4528317053071729357
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -464,6 +321,18 @@ PrefabInstance:
     - target: {fileID: 6254441025469791266, guid: 64e1a557495cdab46a25e3db238e36ff, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6991844038955400146, guid: 64e1a557495cdab46a25e3db238e36ff, type: 3}
+      propertyPath: _defendColor.b
+      value: 2.1471152
+      objectReference: {fileID: 0}
+    - target: {fileID: 6991844038955400146, guid: 64e1a557495cdab46a25e3db238e36ff, type: 3}
+      propertyPath: _defendColor.g
+      value: 7.999999
+      objectReference: {fileID: 0}
+    - target: {fileID: 6991844038955400146, guid: 64e1a557495cdab46a25e3db238e36ff, type: 3}
+      propertyPath: _defendColor.r
+      value: 1.2146596
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -585,7 +454,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2927451471731740026, guid: 708a969386ffaae42b4f5737fe04fedc, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3997919743359909949, guid: 708a969386ffaae42b4f5737fe04fedc, type: 3}
       propertyPath: m_LocalScale.x
@@ -649,7 +518,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4337149507793672839, guid: 708a969386ffaae42b4f5737fe04fedc, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5516503548615876773, guid: 708a969386ffaae42b4f5737fe04fedc, type: 3}
       propertyPath: m_Asset
@@ -660,11 +529,35 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5516503548615876773, guid: 708a969386ffaae42b4f5737fe04fedc, type: 3}
+      propertyPath: m_PropertySheet.m_Vector4f.m_Array.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5516503548615876773, guid: 708a969386ffaae42b4f5737fe04fedc, type: 3}
       propertyPath: m_PropertySheet.m_Gradient.m_Array.Array.data[0].m_Name
       value: CoreColor
       objectReference: {fileID: 0}
     - target: {fileID: 5516503548615876773, guid: 708a969386ffaae42b4f5737fe04fedc, type: 3}
+      propertyPath: m_PropertySheet.m_Vector4f.m_Array.Array.data[0].m_Name
+      value: Color
+      objectReference: {fileID: 0}
+    - target: {fileID: 5516503548615876773, guid: 708a969386ffaae42b4f5737fe04fedc, type: 3}
+      propertyPath: m_PropertySheet.m_Vector4f.m_Array.Array.data[0].m_Value.x
+      value: 9.874545
+      objectReference: {fileID: 0}
+    - target: {fileID: 5516503548615876773, guid: 708a969386ffaae42b4f5737fe04fedc, type: 3}
+      propertyPath: m_PropertySheet.m_Vector4f.m_Array.Array.data[0].m_Value.y
+      value: 9.874545
+      objectReference: {fileID: 0}
+    - target: {fileID: 5516503548615876773, guid: 708a969386ffaae42b4f5737fe04fedc, type: 3}
+      propertyPath: m_PropertySheet.m_Vector4f.m_Array.Array.data[0].m_Value.z
+      value: 9.874545
+      objectReference: {fileID: 0}
+    - target: {fileID: 5516503548615876773, guid: 708a969386ffaae42b4f5737fe04fedc, type: 3}
       propertyPath: m_PropertySheet.m_Gradient.m_Array.Array.data[0].m_Overridden
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5516503548615876773, guid: 708a969386ffaae42b4f5737fe04fedc, type: 3}
+      propertyPath: m_PropertySheet.m_Vector4f.m_Array.Array.data[0].m_Overridden
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5516503548615876773, guid: 708a969386ffaae42b4f5737fe04fedc, type: 3}
@@ -765,13 +658,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7312834011845756709, guid: 708a969386ffaae42b4f5737fe04fedc, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7312834011845756709, guid: 708a969386ffaae42b4f5737fe04fedc, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: a655d90330ae46b47aeeda8782b8602f, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 708a969386ffaae42b4f5737fe04fedc, type: 3}
+--- !u!2083052967 &2181825233796684907 stripped
+VisualEffect:
+  m_CorrespondingSourceObject: {fileID: 5516503548615876773, guid: 708a969386ffaae42b4f5737fe04fedc, type: 3}
+  m_PrefabInstance: {fileID: 5965555103346801870}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7328093341289823475 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3997919743359909949, guid: 708a969386ffaae42b4f5737fe04fedc, type: 3}

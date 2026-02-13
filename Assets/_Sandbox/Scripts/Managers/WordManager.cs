@@ -22,10 +22,12 @@ namespace _Sandbox.Scripts.Managers
             LoadWordsData();
         }
 
+        public void Reset() {
+            collectedWords.Clear();
+        }
+
         private void LoadWordsData() {
             if (wordsDataFile == null) return;
-
-
             wordData = JsonUtility.FromJson<WordDataSet>(wordsDataFile.text);
         }
 
@@ -50,13 +52,17 @@ namespace _Sandbox.Scripts.Managers
             Green,
             Blue,
             Yellow,
-            White
+            White,
+            Gray,
         }
 
         public WordColor GetDominantCollectedColor()
         {
+                 
+            Debug.Log($"--- collection? {collectedWords.Count}");
+            
             if (collectedWords.Count == 0 || wordData == null || wordData.words == null)
-                return WordColor.White;
+                return WordColor.Gray;
 
             float totalR = 0f;
             float totalG = 0f;

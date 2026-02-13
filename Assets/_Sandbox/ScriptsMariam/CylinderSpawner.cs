@@ -80,11 +80,9 @@ public class CylinderSpawner : MonoBehaviour
 
     IEnumerator SpawnFirstPointCoroutine()
     {
-        Debug.Log("WARNING!!!!! ");
 
         yield return new WaitForSeconds(warningTime);
         SpawnFirstHorizontal();
-        Debug.Log("SPAWNING CYLINDER!!!!! ");
     }
 
     IEnumerator SpawnFromPointsStaggered()

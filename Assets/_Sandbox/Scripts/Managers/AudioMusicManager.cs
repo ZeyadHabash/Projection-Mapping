@@ -22,6 +22,7 @@ namespace _Sandbox.Scripts.Managers
         }
 
         public void SwitchMusic(AudioClip clip) {
+            if (clip == null || audioSource.clip == clip) return;
             audioSource.clip = clip;
             audioSource.Play();
         }

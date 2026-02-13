@@ -1,3 +1,4 @@
+using _Sandbox.Scripts.IdentityCore;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
@@ -13,8 +14,8 @@ namespace _Sandbox.Scripts.Managers
         [SerializeField] private float transitionDuraiton = 0.8f;
         [SerializeField] [ColorUsage(true, true)] private Color _gridColor = Color.gray;
         [SerializeField] private AudioClip sceneMusic;
-        
-        
+
+        private Transform player; 
         private Sequence appearSequence;
         private Material gridMat;
         private static readonly int Fade = Shader.PropertyToID("_fade");
@@ -25,6 +26,7 @@ namespace _Sandbox.Scripts.Managers
         }
 
         private void Start() {
+            player = GameObject.FindGameObjectWithTag("Player").transform;
             Appear();
         }
         
@@ -46,7 +48,7 @@ namespace _Sandbox.Scripts.Managers
                 AudioMusicManager.Instance.SwitchMusic(sceneMusic);
                 AudioMusicManager.Instance.FadeMusic(transitionDuraiton*2, 0.7f);
             }
-            
+            player.GetComponent<CoreColor>().RevealColor();
             appearSequence.PlayForward();
         }
 

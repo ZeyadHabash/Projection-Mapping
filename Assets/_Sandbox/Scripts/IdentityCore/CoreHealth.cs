@@ -14,7 +14,7 @@ namespace _Sandbox.Scripts.IdentityCore
 
         void Awake() {
             rend = GetComponent<Renderer>();
-            originalColor = rend.material.color;
+            originalColor = rend.material.GetColor(EmissionColor);
         }
 
         public void TakeDamage() {

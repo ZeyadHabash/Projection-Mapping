@@ -29,12 +29,14 @@ namespace _Sandbox.Scripts.Hand
         [SerializeField] private float _duration = 0.2f; 
         
         public Color HandColor => _handColor;
+        public Color originalColor;
         
         private void Awake() {
             lensFlare = GetComponentInChildren<LensFlareComponentSRP>();
             handsLight = GetComponentInChildren<Light>();
             ringMat = ring.material;
             sphereMat = sphere.material;
+            originalColor = _handColor;
             SetupCloseSequence();
             SetupHideSequence();
         }
@@ -107,6 +109,11 @@ namespace _Sandbox.Scripts.Hand
 
         public void SetDefendColor() {
             _handColor = _defendColor;
+            UpdateColor();
+        }
+
+        public void ResetColor() {
+            _handColor = originalColor;
             UpdateColor();
         }
 

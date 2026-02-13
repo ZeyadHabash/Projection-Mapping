@@ -4,6 +4,7 @@ using _Sandbox.Scripts.Utilities.Bases;
 using extOSC;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.VFX;
 
 namespace _Sandbox.Scripts.Managers
 {
@@ -19,6 +20,7 @@ namespace _Sandbox.Scripts.Managers
         [Header("Keyboard Debug")]
         [SerializeField] private bool enableKeyboardMovement = true;
         [SerializeField] private float keyboardMoveSpeed = 5f;
+        private bool isCoreEnabled = false;
 
         public HandController RightHand => rightHand;
         public HandController LeftHand => leftHand;
@@ -84,12 +86,12 @@ namespace _Sandbox.Scripts.Managers
         }
         
         private void OnHeadX(OSCMessage message) {
-            if (coreMovement != null)
+            if (coreMovement != null && isCoreEnabled)
                 coreMovement.SetRawX(message.Values[0].FloatValue);
         }
 
         private void OnHeadY(OSCMessage message) {
-            if (coreMovement != null)
+            if (coreMovement != null && isCoreEnabled)
                 coreMovement.SetRawY(message.Values[0].FloatValue);
         }
 
@@ -147,12 +149,21 @@ namespace _Sandbox.Scripts.Managers
         #endregion
 
         public void EnableCore() {
+            isCoreEnabled = true;
             coreMovement.GetComponent<MeshRenderer>().enabled = true;
-            coreMovement.transform.GetChild(0).gameObject.SetActive(true);
+            coreMovement.transform.GetChild(0).GetComponent<VisualEffect>().enabled = true;
         }
 
         public void DisableCore() {
-             coreMovement.GetComponent<MeshRenderer>().enabled = false;
+            isCoreEnabled = false;
+            coreMovement.GetComponent<MeshRenderer>().enabled = false;
+        }
+        
+        public void ResetCore() {
+            isCoreEnabled = true;
+            coreMovement.transform.localScale = Vector3.one;
+            coreMovement.GetComponent<MeshRenderer>().enabled = true;
+            coreMovement.transform.GetChild(0).GetComponent<VisualEffect>().enabled = false;
         }
     }
 }

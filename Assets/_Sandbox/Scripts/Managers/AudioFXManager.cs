@@ -8,7 +8,6 @@ namespace _Sandbox.Scripts.Managers
     public class AudioFXManager : Singleton<AudioFXManager>
     {
         private AudioSource audioSource;
-        // private AudioMixer
         private float fxVolume = 0.5f;
 
         protected override void Awake()
@@ -19,17 +18,13 @@ namespace _Sandbox.Scripts.Managers
 
         public void PlayFXClip(AudioClip audioClip,  float volumeFactor = 1)
         {
-            audioSource.clip = audioClip;
-            audioSource.volume = volumeFactor * fxVolume;
-            audioSource.Play();
+            audioSource.PlayOneShot(audioClip, volumeFactor * fxVolume);
         }
 
         public void PlayRandomFXClip(AudioClip[] audioClips, float volumeFactor = 1)
         {
             int rand = Random.Range(0, audioClips.Length);
-            audioSource.clip = audioClips[rand];
-            audioSource.volume = volumeFactor * fxVolume;
-            audioSource.Play();
+            audioSource.PlayOneShot(audioClips[rand], volumeFactor * fxVolume);
         }
 
         public void SpawnVfx(GameObject prefab, Vector3 position, float lifetime = 0f, Transform parent = null)

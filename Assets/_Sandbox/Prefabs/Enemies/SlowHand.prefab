@@ -76,6 +76,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe88d22998a7f504aa759ca280521c98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ClickToDestroy
+  destroySound: {fileID: 8300000, guid: bae5a85de6d5fd94e92c3966f72ca2b5, type: 3}
 --- !u!65 &2597966707789882114
 BoxCollider:
   m_ObjectHideFlags: 0

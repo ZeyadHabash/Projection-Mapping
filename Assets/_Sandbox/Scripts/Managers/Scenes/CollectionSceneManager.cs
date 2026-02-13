@@ -33,6 +33,7 @@ namespace _Sandbox.Scripts.Managers
 
         private void Start() {
             Appear();
+            WordManager.Instance.Reset();
         }
 
         private void SetupAppearSequence() {

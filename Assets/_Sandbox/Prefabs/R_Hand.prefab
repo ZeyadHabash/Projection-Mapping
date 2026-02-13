@@ -106,6 +106,7 @@ MonoBehaviour:
   _lensScale: 0.02
   _lightIntensity: 0.18
   _duration: 0.2
+  originalColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &903695398653456193
 MonoBehaviour:
   m_ObjectHideFlags: 0

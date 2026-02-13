@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using _Sandbox.Scripts.Enums;
+using _Sandbox.Scripts.Hand;
 using _Sandbox.ScriptsMariam;
 using DG.Tweening;
 using TMPro;
@@ -50,7 +51,13 @@ namespace _Sandbox.Scripts.Managers
         }
 
         private void Appear() {
-            if (AudioMusicManager.Instance != null) AudioMusicManager.Instance.FadeMusic(transitionDuraiton*2, 0.7f);
+            OSCManager.Instance.LeftHand.GetComponent<HandEffect>().ResetColor();
+            OSCManager.Instance.RightHand.GetComponent<HandEffect>().ResetColor();
+            if (OSCManager.Instance != null) OSCManager.Instance.ResetCore();
+            if (AudioMusicManager.Instance != null) {
+                AudioMusicManager.Instance.SwitchMusic(sceneMusic);
+                AudioMusicManager.Instance.FadeMusic(transitionDuraiton*2, 0.7f);
+            }
             appearSequence.PlayForward();
         }
 
