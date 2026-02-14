@@ -164,6 +164,7 @@ namespace _Sandbox.Scripts.Managers
             coreMovement.transform.localScale = Vector3.one;
             coreMovement.GetComponent<MeshRenderer>().enabled = true;
             coreMovement.transform.GetChild(0).GetComponent<VisualEffect>().enabled = false;
+            coreMovement.GetComponent<CoreColor>().ResetColor();
         }
     }
 }

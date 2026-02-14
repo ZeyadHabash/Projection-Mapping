@@ -19,6 +19,9 @@ namespace _Sandbox.Scripts.Managers
         [SerializeField] private MeshRenderer handOpenedRenderer;
         [SerializeField] [ColorUsage(true, true)] private Color _gridColor = Color.gray;
         [SerializeField] private AudioClip sceneMusic;
+
+
+        private float musicVolume = 0.025f;
         
         private Sequence appearSequence;
         private Material gridMat;
@@ -56,7 +59,7 @@ namespace _Sandbox.Scripts.Managers
             if (OSCManager.Instance != null) OSCManager.Instance.ResetCore();
             if (AudioMusicManager.Instance != null) {
                 AudioMusicManager.Instance.SwitchMusic(sceneMusic);
-                AudioMusicManager.Instance.FadeMusic(transitionDuraiton*2, 0.7f);
+                AudioMusicManager.Instance.FadeMusic(transitionDuraiton*2, musicVolume);
             }
             appearSequence.PlayForward();
         }

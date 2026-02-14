@@ -1,4 +1,5 @@
-﻿using _Sandbox.Scripts.Managers;
+﻿using System;
+using _Sandbox.Scripts.Managers;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.VFX;
@@ -16,6 +17,12 @@ namespace _Sandbox.Scripts.IdentityCore
         [SerializeField] [ColorUsage(true, true)] private Color _grayGradient;
         
         [SerializeField] private VisualEffect vfx;
+
+        private Color originalColor;
+
+        private void Start() {
+            originalColor = vfx.GetVector4("Color");
+        }
 
         public void RevealColor() {
             // 1. Get the dominant color type
@@ -52,6 +59,11 @@ namespace _Sandbox.Scripts.IdentityCore
 
             if (vfx != null)  vfx.SetVector4("Color", targetGradient);
             transform.DOScale(Vector3.one*2.5f, 0.5f).SetEase(Ease.OutBack);
+            transform.DOMove(new Vector3(0, 12, 0), 0.4f);
+        }
+
+        public void ResetColor() {
+            vfx.SetVector4("Color", originalColor);
         }
     }
 }

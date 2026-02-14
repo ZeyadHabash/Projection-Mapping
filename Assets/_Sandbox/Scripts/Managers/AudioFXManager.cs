@@ -8,7 +8,7 @@ namespace _Sandbox.Scripts.Managers
     public class AudioFXManager : Singleton<AudioFXManager>
     {
         private AudioSource audioSource;
-        private float fxVolume = 0.5f;
+        private float fxVolume = 0.8f;
 
         protected override void Awake()
         {

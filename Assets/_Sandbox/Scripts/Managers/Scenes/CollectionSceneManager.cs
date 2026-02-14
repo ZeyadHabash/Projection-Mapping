@@ -18,6 +18,9 @@ namespace _Sandbox.Scripts.Managers
         [SerializeField] private float transitionDuraiton = 0.8f;
         [SerializeField] [ColorUsage(true, true)] private Color _gridColor = Color.gray;
         
+        private float musicVolume = 0.025f;
+        private float sceneDuration = 35f;
+        
         private Sequence appearSequence;
         private Material gridMat;
         private static readonly int Fade = Shader.PropertyToID("_fade");
@@ -49,7 +52,7 @@ namespace _Sandbox.Scripts.Managers
 
         private void Appear() {
             // do appear logic...
-            if (AudioMusicManager.Instance != null) AudioMusicManager.Instance.FadeMusic(transitionDuraiton*2, 0.8f);
+            if (AudioMusicManager.Instance != null) AudioMusicManager.Instance.FadeMusic(transitionDuraiton*2, musicVolume);
             appearSequence.PlayForward();
         }
 
@@ -72,7 +75,7 @@ namespace _Sandbox.Scripts.Managers
         }
         
         private IEnumerator SceneTimerCoroutine() {
-            yield return new WaitForSeconds(30f);
+            yield return new WaitForSeconds(sceneDuration);
             HandleSceneEnd();
         }
 

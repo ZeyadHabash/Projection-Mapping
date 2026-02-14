@@ -242,7 +242,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d2ac99097a245349b65aef62e3d9d8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Sandbox.Scripts.IdentityCore.CoreMovement
-  yOffset: 10
+  yOffset: 8
 --- !u!114 &158700854624031668
 MonoBehaviour:
   m_ObjectHideFlags: 0

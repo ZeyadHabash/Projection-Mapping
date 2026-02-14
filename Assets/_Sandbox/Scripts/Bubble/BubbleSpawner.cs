@@ -13,6 +13,7 @@ namespace _Sandbox.Scripts.Bubble
     public class BubbleSpawner : MonoBehaviour
     {
         [SerializeField] private Transform[] spawnPoints;
+        [SerializeField] private Transform[] spawnPointsTwo;
 
         [SerializeField] private GameObject basicBubblePrefab;
         [SerializeField] private GameObject bothHandsBubblePrefab;
@@ -32,6 +33,8 @@ namespace _Sandbox.Scripts.Bubble
 
         [Header("Audio")]
         [SerializeField] private AudioClip[] spawnAudioClips;
+
+        private bool isFirstSpawnPattern = false;
 
         private static readonly BubbleType[] bubbleTypes = (BubbleType[])Enum.GetValues(typeof(BubbleType));
         private readonly List<BubbleBehavior> activeBubbles = new();
@@ -66,10 +69,13 @@ namespace _Sandbox.Scripts.Bubble
 
             spawnTimer = currentSpawnInterval;
 
+            var activeSpawnPoints = isFirstSpawnPattern ? spawnPoints : spawnPointsTwo;
+            isFirstSpawnPattern = !isFirstSpawnPattern;
+
             for (int i = 0; i < 4 && activeBubbles.Count < maxBubbles; i++)
             {
                 var data = GetUnusedWordEntry();
-                if (data != null) SpawnBubble(data, spawnPoints[i]);
+                if (data != null) SpawnBubble(data, activeSpawnPoints[i]);
             }
         }
 

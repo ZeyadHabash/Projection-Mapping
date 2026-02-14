@@ -19,6 +19,7 @@ namespace _Sandbox.Scripts.Managers
         private Sequence appearSequence;
         private Material gridMat;
         private static readonly int Fade = Shader.PropertyToID("_fade");
+        private float musicVolume = 0.5f;
 
         private void Awake() {
             gridMat = grid.material;
@@ -46,7 +47,7 @@ namespace _Sandbox.Scripts.Managers
             if (OSCManager.Instance != null) OSCManager.Instance.DisableCore();
             if (AudioMusicManager.Instance != null) {
                 AudioMusicManager.Instance.SwitchMusic(sceneMusic);
-                AudioMusicManager.Instance.FadeMusic(transitionDuraiton*2, 0.7f);
+                AudioMusicManager.Instance.FadeMusic(transitionDuraiton*2, musicVolume);
             }
             player.GetComponent<CoreColor>().RevealColor();
             appearSequence.PlayForward();

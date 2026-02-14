@@ -692,8 +692,8 @@ MonoBehaviour:
   prefabsToSpawn:
   - {fileID: 3900878823382028222, guid: 95b9d76824514cc4d89596d068a07ef1, type: 3}
   startSpawnDelay: 3
-  minSpawnDelay: 1.2
-  accelerationRate: 0.4
+  minSpawnDelay: 1.8
+  accelerationRate: 0.3
   outerMin: {x: -11.96, y: 3.5}
   outerMax: {x: 12.04, y: 21}
   innerMin: {x: -9.83, y: 4.14}
@@ -798,14 +798,14 @@ MonoBehaviour:
   - {fileID: 267040090}
   warningColor: {r: 1, g: 0, b: 0, a: 1}
   warningTime: 1.5
-  delayBetweenAttacks: 5
-  minDelayBetweenSpawnPoints: 0.3
-  maxDelayBetweenSpawnPoints: 0.8
-  cylinderSpeed: 6
-  spawnAcceleration: 0.05
-  speedAcceleration: 0.5
-  minAttackDelay: 1
-  maxCylinderSpeed: 12
+  delayBetweenAttacks: 5.5
+  minDelayBetweenSpawnPoints: 0.4
+  maxDelayBetweenSpawnPoints: 0.9
+  cylinderSpeed: 5
+  spawnAcceleration: 0.04
+  speedAcceleration: 0.35
+  minAttackDelay: 1.4
+  maxCylinderSpeed: 10
 --- !u!4 &1527089145
 Transform:
   m_ObjectHideFlags: 0
